@@ -3,12 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Inventory;
+use App\Supplier;
+use App\Brand;
+use Auth;
 
 class InventoryController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function dashboard()
     {
-        return view('Inventory.dashboard');
+        $products = Inventory::count();
+        $inventory = Inventory::all();
+        $available_product = Inventory::where('status', 1)->count();
+        return view('Inventory.dashboard', compact('products', 'inventory', 'available_product'));
     }
 
     public function products()
@@ -26,14 +44,16 @@ class InventoryController extends Controller
 
     public function addProduct(Request $request)
     {
-        $product = new Product();
-        $product->name = $request->name;
-        $product->brand = $request->brand;
-        $product->quantity = $request->quantity;
-        $prodcut->supplier_id = $reuqest->supplier_id;
-        $product->added_by = Auth::User()->id;
+        $inventory = new Inventory();
+        $inventory->product_name = $request->product_name;
+        $inventory->brand_id = $request->brand_id;
+        $inventory->product_amount = $request->product_amount;
+        $inventory->product_quantity = $request->product_quantity;
+        $inventory->supplier_id = $request->supplier_id;
+        $inventory->added_by = Auth::User()->id;
+        $inventory->date_supplied = $request->date_supplied;
 
-        $product->save();
+        $inventory->save();
 
         return redirect()->back();
     }

@@ -30,13 +30,19 @@
                             <div class="col-lg-4">
                                 <div class="media">
                                     <div class="mr-3">
-                                        <img src="{{asset('template/vertical/assets/images/users/avatar-1.jpg')}}" alt="" class="avatar-md rounded-circle img-thumbnail">
+                                        <img src="{{asset('template/vertical/assets/images/users/hs.jpeg')}}" alt="" class="avatar-md rounded-circle img-thumbnail">
                                     </div>
                                     <div class="media-body align-self-center">
                                         <div class="text-muted">
                                             <p class="mb-2">Welcome to the Admin dashboard</p>
-                                            <h5 class="mb-1">Timi</h5>
-                                            <p class="mb-0">Store Admin</p>
+                                            <h5 class="mb-1">{{ Auth::user()->name }}</h5>
+                                            <p class="mb-0">
+                                                @if (Auth::user()->is_admin == 1 && Auth::user()->is_staff == 1)
+                                                    Admin User
+                                                @elseif(Auth::user()->is_admin == 0 && Auth::user()->is_staff == 1)
+                                                    Staff User
+                                                @endif
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -82,10 +88,10 @@
                                             <i class="bx bx-archive-in"></i>
                                         </span>
                                     </div>
-                                    <h5 class="font-size-14 mb-0">Revenue</h5>
+                                    <h5 class="font-size-14 mb-0">Products</h5>
                                 </div>
                                 <div class="text-muted mt-4">
-                                    <h4>$ 28,452 <i class="mdi mdi-chevron-up ml-1 text-success"></i></h4>
+                                    <h4>{{$products}} <i class="mdi mdi-chevron-up ml-1 text-success"></i></h4>
                                     <div class="d-flex">
                                         <span class="badge badge-soft-success font-size-12"> + 0.2% </span> <span class="ml-2 text-truncate">From previous period</span>
                                     </div>
@@ -103,10 +109,10 @@
                                             <i class="bx bx-purchase-tag-alt"></i>
                                         </span>
                                     </div>
-                                    <h5 class="font-size-14 mb-0">Average Price</h5>
+                                    <h5 class="font-size-14 mb-0">Available Products</h5>
                                 </div>
                                 <div class="text-muted mt-4">
-                                    <h4>$ 16.2 <i class="mdi mdi-chevron-up ml-1 text-success"></i></h4>
+                                    <h4>{{$available_product}}<i class="mdi mdi-chevron-up ml-1 text-success"></i></h4>
                                     
                                     <div class="d-flex">
                                         <span class="badge badge-soft-warning font-size-12"> 0% </span> <span class="ml-2 text-truncate">From previous period</span>
@@ -132,28 +138,42 @@
                                         <th>Brand</th>
                                         <th>Product</th>
                                         <th>Quantity</th>
-                                        <th>Supplier</th>
                                         <th>Total Amount</th>
+                                        <th>Supplier</th>
+                                        <th>Date Supplied</th>
+                                        <th>Status</th>
                                         <th>Manage</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($inventory as $i)
-                                    <tr>
-                                        <td>{{$i->brand}}</td>
-                                        <td>{{$i->product_name}}</td>
-                                        <td>{{$i->created_at->format('jS F Y')}}</td>
-                                        <td>{{$i->slug}}</td>
-                                        <td>
-                                            <span class="badge badge-pill badge-soft-success font-size-12">Published</span>
-                                        </td>
-                                        <td>
-                                            <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
-                                                View Details
-                                            </button>
-                                        </td>
-                                    </tr>    
+                                        <tr>
+                                            <td>{{$i->brand->name}}</td>
+                                            <td>{{$i->product_name}}</td>
+                                            <th>{{$i->product_quantity}}</th>
+                                            <th>{{$i->product_amount}}</th>
+                                            <th>{{$i->supplier->name}}</th>
+                                            <td>{{$i->date_supplied->format('jS F Y')}}</td>
+                                            <th>
+                                                @if ($i->status == 1)
+                                                <span class="badge badge-pill badge-soft-success font-size-12">Available</span>
+                                                @endif
+                                            </th>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
+                                                        <i class="mdi mdi-dots-horizontal font-size-18"></i>
+                                                    </a>
+                                                    {{-- <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item btn-primary" href="{{route('editProduct', $i->id)}}"><i class="fa fa-info"></i> Edit</a>
+                                                        <a class="dropdown-item btn-danger" href="#" onclick="deleteItem('{{$i->id}}')"><i class="fa fa-trash"></i> Delete</a>
+                                                    </div> --}}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                
+                                            </td>
+                                        </tr>    
                                     @endforeach
                                 </tbody>
                             </table>

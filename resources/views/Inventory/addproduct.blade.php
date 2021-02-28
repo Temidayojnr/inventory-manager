@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Add Stock</h4>
+                <h4 class="mb-0 font-size-18">Product</h4>
   
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
@@ -48,6 +48,17 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <div class="form-group">
+                                            <label for="product_amount">Amount(Add naira)</label>
+                                            <input type="text" name="product_amount" class="form-control" id="product_amount">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
                                         <label for="brand_id">Brand</label>
                                         <select name="brand_id" class="form-control" id="brand_id">
                                             <option value="">Select Brand...</option>
@@ -57,18 +68,7 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
-        
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="product_amount">Amount(Add naira)</label>
-                                        <input type="text" name="product_amount" class="form-control" id="product_amount">
-                                    </div>
-                                </div> 
-                            </div>
-        
-                            <div class="row">
+                                
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="Supplier_id">Supplier</label>

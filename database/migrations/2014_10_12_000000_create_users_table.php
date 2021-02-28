@@ -20,10 +20,16 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('is_admin')->default(0);
-            $table->boolean('is_staff')->defaul(1);
+            $table->boolean('is_staff')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('users')->insert([
+            'name' => 'Temidayo Onifade',
+            'email' => 'temijdayo@gmail.com',
+            'password' => bcrypt('secret'),
+        ]);
     }
 
     /**

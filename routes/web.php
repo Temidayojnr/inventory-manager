@@ -15,8 +15,13 @@
 //     return view('welcome');
 // });
 
-Route::get('/','InventoryController@dashboard');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/','InventoryController@dashboard');
+
+// Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/add', 'InventoryController@createProductPage')->name('addProductPage');
+
+Route::post('/add-product', 'InventoryController@addProduct')->name('AddProduct');

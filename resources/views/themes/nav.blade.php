@@ -3,21 +3,25 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <a href="index.html" class="logo logo-dark">
+                <a href="/" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{asset('template/vertical/assets/images/logo.svg')}}" alt="" height="22">
+                        {{-- <img src="{{asset('template/vertical/assets/images/logo.svg')}}" alt="" height="22"> --}}
+                        Inventory Manager
                     </span>
                     <span class="logo-lg">
-                        <img src="{{asset('template/vertical/assets/images/logo-dark.png')}}" alt="" height="17">
+                        {{-- <img src="{{asset('template/vertical/assets/images/logo-dark.png')}}" alt="" height="17"> --}}
+                        Inventory Manager
                     </span>
                 </a>
 
-                <a href="index.html" class="logo logo-light">
+                <a href="/" style="padding-top: 5%;" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{{asset('template/vertical/assets/images/logo-light.svg')}}" alt="" height="22">
+                        {{-- <img src="{{asset('template/vertical/assets/images/logo-light.svg')}}" alt="" height="22"> --}}
+                        <h3 style="color: white">IM</h3>
                     </span>
                     <span class="logo-lg">
-                        <img src="{{asset('template/vertical/assets/images/logo-light.png')}}" alt="" height="19">
+                        {{-- <img src="{{asset('template/vertical/assets/images/logo-light.png')}}" alt="" height="19"> --}}
+                        <h3 style="color: white">Inventory Manager</h3>
                     </span>
                 </a>
             </div>
@@ -63,19 +67,22 @@
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="{{asset('template/vertical/assets/images/users/avatar-1.jpg')}}"
+                    <img class="rounded-circle header-profile-user" src="{{asset('template/vertical/assets/images/users/hs.jpeg')}}"
                         alt="Header Avatar">
-                    <span class="d-none d-xl-inline-block ml-1" key="t-henry">Timi Adegoju</span>
+                    <span class="d-none d-xl-inline-block ml-1" key="t-henry">{{ Auth::user()->name }}</span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <!-- item-->
                     <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle mr-1"></i> <span key="t-profile">Profile</span></a>
-                    <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle mr-1"></i> <span key="t-my-wallet">My Wallet</span></a>
-                    <a class="dropdown-item d-block" href="#"><span class="badge badge-success float-right">11</span><i class="bx bx-wrench font-size-16 align-middle mr-1"></i> <span key="t-settings">Settings</span></a>
-                    <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle mr-1"></i> <span key="t-lock-screen">Lock screen</span></a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" href="#"><i class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i> <span key="t-logout">Logout</span></a>
+                    <a class="dropdown-item text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                        <i class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i> <span key="t-logout">Logout</span>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </a>
                 </div>
             </div>
 
