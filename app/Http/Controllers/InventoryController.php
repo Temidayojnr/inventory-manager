@@ -57,4 +57,36 @@ class InventoryController extends Controller
 
         return redirect()->back();
     }
+
+    public function edit_product($id)
+    {
+        $i = Inventory::find($id);
+        $supplier = Supplier::all();
+        $brand = Brand::all();
+
+        return view('inventory.edit', compact('i', 'supplier', 'brand'));
+    }
+
+    public function updateProduct(Request $request, $id)
+    {
+        $inventory = Inventory::find($request->id);
+        $inventory->product_name = $request->product_name;
+        $inventory->brand_id = $request->brand_id;
+        $inventory->product_amount = $request->product_amount;
+        $inventory->product_quantity = $request->product_quantity;
+        $inventory->supplier_id = $request->supplier_id;
+        $inventory->added_by = Auth::User()->id;
+        $inventory->date_supplied = $request->date_supplied;
+
+        $inventory->save();
+
+        return redirect()->back();
+    }
+
+    public function deleteInventory($id)
+    {
+        $inventory = Inventory::where("id", $id);
+        $inventory->delete();
+        return redirect()->back();
+    }
 }

@@ -20,7 +20,7 @@
                         <span key="t-layouts">Products</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/" key="t-horizontal">View all Products</a></li>
+                        <li><a href="/products" key="t-horizontal">View all Products</a></li>
                         <li><a href="/add" key="t-vertical">Add Product</a></li>
                     </ul>
                 </li>

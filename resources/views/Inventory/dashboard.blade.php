@@ -126,64 +126,6 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title mb-4">Stock</h4>
-                        <div class="table-responsive">
-                            <table class="table table-centered table-nowrap mb-0">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th>Brand</th>
-                                        <th>Product</th>
-                                        <th>Quantity</th>
-                                        <th>Total Amount</th>
-                                        <th>Supplier</th>
-                                        <th>Date Supplied</th>
-                                        <th>Status</th>
-                                        <th>Manage</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($inventory as $i)
-                                        <tr>
-                                            <td>{{$i->brand->name}}</td>
-                                            <td>{{$i->product_name}}</td>
-                                            <th>{{$i->product_quantity}}</th>
-                                            <th>{{$i->product_amount}}</th>
-                                            <th>{{$i->supplier->name}}</th>
-                                            <td>{{$i->date_supplied->format('jS F Y')}}</td>
-                                            <th>
-                                                @if ($i->status == 1)
-                                                <span class="badge badge-pill badge-soft-success font-size-12">Available</span>
-                                                @endif
-                                            </th>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
-                                                        <i class="mdi mdi-dots-horizontal font-size-18"></i>
-                                                    </a>
-                                                    {{-- <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item btn-primary" href="{{route('editProduct', $i->id)}}"><i class="fa fa-info"></i> Edit</a>
-                                                        <a class="dropdown-item btn-danger" href="#" onclick="deleteItem('{{$i->id}}')"><i class="fa fa-trash"></i> Delete</a>
-                                                    </div> --}}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                
-                                            </td>
-                                        </tr>    
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- end table-responsive -->
-                    </div>
-                </div>
-            </div>
-        </div>
-
 
     </div> <!-- container-fluid -->
 </div>
