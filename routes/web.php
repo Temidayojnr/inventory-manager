@@ -16,7 +16,7 @@
 // });
 
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/','InventoryController@dashboard');
 

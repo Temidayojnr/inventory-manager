@@ -17,6 +17,8 @@ class CreateOrderTable extends Migration
             $table->bigIncrements('id');
             $table->integer('product_id');
             $table->string('product_quantity');
+            $table->string('amount');
+            $table->string('total_amount');
             $table->string('client_name');
             $table->string('client_contact');
             $table->timestamps();
