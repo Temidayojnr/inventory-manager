@@ -121,7 +121,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="total_cost">Total Cost</label>
-                                            <input type="text" name="total_cost" class="form-control" id="total_cost">
+                                            <input type="text" name="total_cost" class="form-control" id="total_cost" disabled>
                                         </div>
                                     </div>
                                 </div>

@@ -53,7 +53,8 @@ class OrderController extends Controller
         $order->invoice_id = $request->invoice_id;
 
         // $order->total_cost = Order::total_cost($request);
-        $order->total_cost = $order->quantity * $order->unit_price;
+        // $request->merge(['total_cost'=>$order->quantity + $order->unit_price]);
+        $order->total_cost = $request->quantity * $request->unit_price;
 
         $order->created_by = Auth::user()->id;
 
