@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Inventory;
 use App\Supplier;
 use App\Brand;
+use App\Order;
 use Auth;
 
 class InventoryController extends Controller
@@ -25,8 +26,9 @@ class InventoryController extends Controller
     {
         $products = Inventory::count();
         $inventory = Inventory::all();
+        $orders = Order::count();
         $available_product = Inventory::where('status', 1)->count();
-        return view('Inventory.dashboard', compact('products', 'inventory', 'available_product'));
+        return view('Inventory.dashboard', compact('products', 'inventory', 'orders', 'available_product'));
     }
 
     public function products()

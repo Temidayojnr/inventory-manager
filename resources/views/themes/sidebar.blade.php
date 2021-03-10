@@ -25,9 +25,37 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="/" class="waves-effect">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-file"></i>
                         <span key="t-layouts">Orders</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="/orders" key="t-horizontal">All Orders</a></li>
+                        <li><a href="/create-order" key="t-vertical">Create Order</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/" class="waves-effect">
+                        <i class="bx bx-file"></i>
+                        <span key="t-layouts">Purchase</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/" class="waves-effect">
+                        <i class="bx bx-file"></i>
+                        <span key="t-layouts">Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/" class="waves-effect">
+                        <i class="bx bx-file"></i>
+                        <span key="t-layouts">Voucher</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/" class="waves-effect">
+                        <i class="bx bx-file"></i>
+                        <span key="t-layouts">FAQ</span>
                     </a>
                 </li>
 

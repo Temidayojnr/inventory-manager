@@ -27,7 +27,7 @@
                         <div class="card-body">
                             <h4 class="card-title mb-4">Add Product</h4>
             
-                            <form method="POST" action="">
+                            <form method="POST" action="{{route('AddProduct')}}">
                                 {{ csrf_field() }}
                                 
                                 <div class="row">

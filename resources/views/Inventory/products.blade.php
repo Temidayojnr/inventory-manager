@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">All Product</h4>
+                <h4 class="mb-0 font-size-18">All Products</h4>
   
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
@@ -15,6 +15,10 @@
                         <li class="breadcrumb-item active">Admin</li>
                     </ol>
                 </div>
+            </div>
+
+            <div class="float-right align-items-center justify-content-between mb-4">
+                <a href="/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-pen fa-sm text-white-50"></i>Add Product</a>
             </div>
         </div>
     </div>
@@ -45,7 +49,7 @@
                                         <td>{{$i->brand->name}}</td>
                                         <td>{{$i->product_name}}</td>
                                         <th>{{number_format($i->product_quantity)}}</th>
-                                        <th>{{number_format($i->product_amount)}}</th>
+                                        <th>₦ {{number_format($i->product_amount)}}</th>
                                         <th>{{$i->supplier->name}}</th>
                                         <td>{{$i->date_supplied->format('jS F Y')}}</td>
                                         <th>
@@ -63,9 +67,6 @@
                                                     <a class="dropdown-item btn-danger" href="#" onclick="deleteItem('{{$i->id}}')"><i class="fa fa-trash"></i> Delete</a>
                                                 </div>
                                             </div>
-                                        </td>
-                                        <td>
-                                            
                                         </td>
                                     </tr>    
                                 @endforeach
