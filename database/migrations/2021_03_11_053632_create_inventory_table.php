@@ -21,6 +21,7 @@ class CreateInventoryTable extends Migration
             $table->integer('brand_id');
             $table->integer('supplier_id');
             $table->date('date_supplied');
+            $table->string('stock_value');
             $table->integer('added_by');
             $table->boolean('status')->default(1);
             $table->timestamps();

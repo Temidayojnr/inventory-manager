@@ -34,14 +34,14 @@ class InventoryController extends Controller
     public function products()
     {
         $inventory = Inventory::all();
-        return view('inventory.products', compact('inventory'));
+        return view('Inventory.products', compact('inventory'));
     }
 
     public function createProductPage()
     {
         $supplier = Supplier::all();
         $brand = Brand::all();
-        return view('inventory.addproduct', compact('supplier', 'brand'));
+        return view('Inventory.addproduct', compact('supplier', 'brand'));
     }
 
     public function addProduct(Request $request)
@@ -54,10 +54,11 @@ class InventoryController extends Controller
         $inventory->supplier_id = $request->supplier_id;
         $inventory->added_by = Auth::User()->id;
         $inventory->date_supplied = $request->date_supplied;
+        $inventory->stock_value = $request->product_quantity * $request->product_amount;
 
         $inventory->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Product Created Successfully!!');;
     }
 
     public function edit_product($id)
@@ -66,7 +67,7 @@ class InventoryController extends Controller
         $supplier = Supplier::all();
         $brand = Brand::all();
 
-        return view('inventory.edit', compact('i', 'supplier', 'brand'));
+        return view('Inventory.edit', compact('i', 'supplier', 'brand'));
     }
 
     public function updateProduct(Request $request, $id)
@@ -82,7 +83,7 @@ class InventoryController extends Controller
 
         $inventory->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Product Updated Successfully!!');;
     }
 
     public function deleteInventory($id)

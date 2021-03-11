@@ -28,16 +28,18 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">Stock</h4>
+                    <h4 class="card-title mb-4">Product</h4>
                     <div class="table-responsive">
                         <table id="datatable" class="table project-list-table table-nowrap table-centered table-borderless" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead class="thead-light">
                                 <tr>
+                                    <th>ID</th>
                                     <th>Brand</th>
-                                    <th>Product</th>
-                                    <th>Quantity</th>
-                                    <th>Total Amount</th>
-                                    <th>Supplier</th>
+                                    <th>Product Name</th>
+                                    <th>Unit</th>
+                                    <th>Unit Price</th>
+                                    <th>Total Stock Value</th>
+                                    <!--<th>Supplier</th>-->
                                     <th>Date Supplied</th>
                                     <th>Status</th>
                                     <th>Manage</th>
@@ -46,11 +48,12 @@
                             <tbody>
                                 @foreach ($inventory as $i)
                                     <tr>
+                                        <td>{{$loop->iteration}}</td>
                                         <td>{{$i->brand->name}}</td>
                                         <td>{{$i->product_name}}</td>
                                         <th>{{number_format($i->product_quantity)}}</th>
                                         <th>₦ {{number_format($i->product_amount)}}</th>
-                                        <th>{{$i->supplier->name}}</th>
+                                        <th>₦ {{number_format($i->stock_value)}}</th>
                                         <td>{{$i->date_supplied->format('jS F Y')}}</td>
                                         <th>
                                             @if ($i->status == 1)

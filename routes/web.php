@@ -39,3 +39,15 @@ Route::get('/orders', 'OrderController@index')->name('Orders');
 Route::get('/create-order', 'OrderController@create')->name('create');
 
 Route::post('/add-order', 'OrderController@createOrder')->name('CreateOrder');
+
+Route::get('/purchase', 'PurchaseController@index')->name('AllPurhcase');
+
+Route::get('/purchase/create', 'PurchaseController@create')->name('createPurchasePage');
+
+Route::post('/purchase/add', 'PurchaseController@purchase')->name('AddPurchase');
+
+Route::get('/purchase/edit/{id}', 'PurchaseController@edit_purchase')->name('editPurchase');
+
+Route::post('/purchase/update/{id}', 'PurchaseController@update_purchase')->name('UpdatePurchase');
+
+Route::get('/purchase/delete/{id}', 'PurchaseController@delete_purchase')->name('deletePurchase');
