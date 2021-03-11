@@ -27,7 +27,7 @@ class PurchaseController extends Controller
         return view('purchase.create', compact('purchases', 'supplier', 'brand'));
     }
 
-    public function purchase()
+    public function purchase(Request $request)
     {
         $purchase = new Purchase;
 
@@ -43,11 +43,11 @@ class PurchaseController extends Controller
 
         $purchase->date_supplied = $request->date_supplied;
 
-        $purchase->unit_price = $reques->unit_price;
+        $purchase->unit_price = $request->unit_price;
 
         $purchase->phone_number = $request->phone_number;
 
-        $purchase->total_amount = $request->qnantity * $request->unit_price;
+        $purchase->total_amount = $request->quantity * $request->unit_price;
 
         $purchase->invoice_id = $request->invoice_id;
 
@@ -62,7 +62,7 @@ class PurchaseController extends Controller
         $supplier = Supplier::all();
         $brand = Brand::all();
 
-        return view('purchase.edit', compact('purchases', 'supplier', 'brand'));
+        return view('purchase.edit', compact('purchase', 'supplier', 'brand'));
     }
 
     public function update_purchase(Request $request, $id)
@@ -85,7 +85,7 @@ class PurchaseController extends Controller
 
         $purchase->phone_number = $request->phone_number;
 
-        $purchase->total_amount = $request->qnantity * $request->unit_price;
+        $purchase->total_amount = $request->quantity * $request->unit_price;
 
         $purchase->invoice_id = $request->invoice_id;
 

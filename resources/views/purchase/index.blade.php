@@ -35,22 +35,22 @@
                                     <th>Item Name</th>
                                     <th>Unit Price</th>
                                     <th>Total Amount</th>
+                                    <th>Invoice ID</th>
                                     <th>Manage</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($purchase as $p)
                                     <tr>
-                                        <td>{{$p->created_at->format('jS F Y')}}</td>
                                         <td>{{$loop->iteration}}</td>
+                                        <td>{{$p->created_at->format('jS F Y')}}</td>
                                         <td>{{$p->supplier->name}}</td>
-                                        <td>{{$p->product->product_name}}</td>
+                                        <td>{{$p->product_name}}</td>
                                         <td>₦ {{number_format($p->unit_price)}}</td>
-                                        <th>{{number_format($p->quantity)}}</th>
                                         <th>₦ {{number_format($p->total_amount)}}</th>
                                         <th>{{$p->invoice_id}}</th>
                                         <td>
-                                            <a href="{{route('editPurchase', $p->id)}}" class="btn btn-priamry"><i class="fa fa-info"></i>Edit</a>
+                                            <a href="{{route('editPurchase', $p->id)}}" class="btn btn-info"><i class="fa fa-info"></i>Edit</a>
                                             <a href="#" onclick="deleteItem('{{$p->id}}')" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>    
