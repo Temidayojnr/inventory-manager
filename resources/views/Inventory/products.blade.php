@@ -37,10 +37,11 @@
                                     <th>Brand</th>
                                     <th>Product Name</th>
                                     <th>Unit</th>
+                                    <th>Total Stock</th>
                                     <th>Unit Price</th>
                                     <th>Total Stock Value</th>
                                     <!--<th>Supplier</th>-->
-                                    <th>Date Supplied</th>
+                                    {{-- <th>Date Supplied</th> --}}
                                     <th>Status</th>
                                     <th>Manage</th>
                                 </tr>
@@ -51,13 +52,14 @@
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$i->brand->name}}</td>
                                         <td>{{$i->product_name}}</td>
+                                        <th>EACH</th>
                                         <th>{{number_format($i->product_quantity)}}</th>
                                         <th>₦ {{number_format($i->product_amount)}}</th>
                                         <th>₦ {{number_format($i->stock_value)}}</th>
-                                        <td>{{$i->date_supplied->format('jS F Y')}}</td>
+                                        {{-- <td>{{$i->date_supplied->format('jS F Y')}}</td> --}}
                                         <th>
                                             @if ($i->status == 1)
-                                            <span class="badge badge-pill badge-soft-success font-size-12">Available</span>
+                                                <span class="badge badge-pill badge-soft-success font-size-12">Available</span>
                                             @endif
                                         </th>
                                         <td>

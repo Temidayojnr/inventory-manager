@@ -1,6 +1,6 @@
 <div class="vertical-menu">
 
-    <div data-simplebar class="h-100">
+    <div data-simplebar class="h-100" style="background: purple;">
 
         <!--- Sidemenu -->
         <div id="sidebar-menu">
@@ -50,6 +50,18 @@
                         <span key="t-layouts">Reports</span>
                     </a>
                 </li>
+
+                @if (Auth::user()->is_admin)
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bx bx-user"></i>
+                            <span key="t-layouts">Users</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="/users" key="t-horizontal">All Users</a></li>
+                        </ul>
+                    </li>
+                @endif
 
             </ul>
         </div>

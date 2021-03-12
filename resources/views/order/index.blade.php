@@ -40,50 +40,113 @@
             </div>
         @endif
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title mb-4">Order</h4>
-                    <div class="table-responsive">
-                        <table id="datatable" class="table project-list-table table-nowrap table-centered table-borderless" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th>Department</th>
-                                    <th>College</th>
-                                    <th>Item Name</th>
-                                    <th>Unit Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total Amount</th>
-                                    <th>Issued Date</th>
-                                    <th>Invoice ID</th>
-                                    <th>Requisition Number</th>
-                                    <th>Requisition Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($orders as $order)
+    @if (Auth::user()->is_admin)
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">Order</h4>
+                        <div class="table-responsive">
+                            <table id="datatable" class="table project-list-table table-nowrap table-centered table-borderless" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                <thead class="thead-light">
                                     <tr>
-                                        <td>{{$order->department->department_name}}</td>
-                                        <td>{{$order->college->college_name}}</td>
-                                        <td>{{$order->product->product_name}}</td>
-                                        <td>₦ {{number_format($order->unit_price)}}</td>
-                                        <th>{{number_format($order->quantity)}}</th>
-                                        <th>₦ {{number_format($order->total_cost)}}</th>
-                                        <th>{{$order->issue_date->format('jS F Y')}}</th>
-                                        <th>{{$order->invoice_id}}</th>
-                                        <th>{{$order->requisition_number}}</th>
-                                        <td>{{$order->requisition_date->format('jS F Y')}}</td>
-                                    </tr>    
-                                @endforeach
-                            </tbody>
-                        </table>
+                                        <th>Department</th>
+                                        <th>College</th>
+                                        <th>Item Name</th>
+                                        <th>Unit Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total Amount</th>
+                                        <th>Issued Date</th>
+                                        <th>Invoice ID</th>
+                                        <th>Requisition Number</th>
+                                        <th>Requisition Date</th>
+                                        <th>Issue</th>
+                                        <th>Deleted By</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($orders as $order)
+                                        {{-- @if ($order->isDeleted == 0) --}}
+                                            <tr>
+                                                <td>{{$order->department->department_name}}</td>
+                                                <td>{{$order->college->college_name}}</td>
+                                                <td>{{$order->product->product_name}}</td>
+                                                <td>₦ {{number_format($order->unit_price)}}</td>
+                                                <th>{{number_format($order->quantity)}}</th>
+                                                <th>₦ {{number_format($order->total_cost)}}</th>
+                                                <th>{{$order->issue_date->format('jS F Y')}}</th>
+                                                <th>{{$order->invoice_id}}</th>
+                                                <th>{{$order->requisition_number}}</th>
+                                                <td>{{$order->requisition_date->format('jS F Y')}}</td>
+                                                <td>
+                                                    @if ($order->isDeleted == 1)
+                                                        <span class="badge badge-pill badge-soft-danger font-size-12">Deleted</span>
+                                                    @endif
+                                                </td>
+                                                <th>{{$order->who_deleted->name ?? ' '}}</th>
+                                            </tr>
+                                        {{-- @endif     --}}
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- end table-responsive -->
                     </div>
-                    <!-- end table-responsive -->
                 </div>
             </div>
         </div>
-    </div>
+    @else
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">Order</h4>
+                        <div class="table-responsive">
+                            <table id="datatable" class="table project-list-table table-nowrap table-centered table-borderless" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Department</th>
+                                        <th>College</th>
+                                        <th>Item Name</th>
+                                        <th>Unit Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total Amount</th>
+                                        <th>Issued Date</th>
+                                        <th>Invoice ID</th>
+                                        <th>Requisition Number</th>
+                                        <th>Requisition Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($orders as $order)
+                                        @if ($order->isDeleted == 0)
+                                            <tr>
+                                                <td>{{$order->department->department_name}}</td>
+                                                <td>{{$order->college->college_name}}</td>
+                                                <td>{{$order->product->product_name}}</td>
+                                                <td>₦ {{number_format($order->unit_price)}}</td>
+                                                <th>{{number_format($order->quantity)}}</th>
+                                                <th>₦ {{number_format($order->total_cost)}}</th>
+                                                <th>{{$order->issue_date->format('jS F Y')}}</th>
+                                                <th>{{$order->invoice_id}}</th>
+                                                <th>{{$order->requisition_number}}</th>
+                                                <td>{{$order->requisition_date->format('jS F Y')}}</td>
+                                                <td>
+                                                    <a href="{{route('DeleteOrder', $order->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i> Delete Order</a>
+                                                </td>
+                                            </tr>
+                                        @endif    
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- end table-responsive -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 
 
 

@@ -2,7 +2,7 @@
     <div class="navbar-header">
         <div class="d-flex">
             <!-- LOGO -->
-            <div class="navbar-brand-box">
+            <div class="navbar-brand-box" style="background: purple;">
                 <a href="/" class="logo logo-dark">
                     <span class="logo-sm">
                         {{-- <img src="{{asset('template/vertical/assets/images/logo.svg')}}" alt="" height="22"> --}}

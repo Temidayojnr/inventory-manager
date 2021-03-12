@@ -20,6 +20,8 @@ Auth::routes(['register' => false]);
 
 Route::get('/','InventoryController@dashboard');
 
+Route::get('/chart', 'InventoryController@chart');
+
 // Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/add', 'InventoryController@createProductPage')->name('addProductPage');
@@ -42,6 +44,8 @@ Route::post('/add-order', 'OrderController@createOrder')->name('CreateOrder');
 
 Route::get('/purchase', 'PurchaseController@index')->name('AllPurhcase');
 
+Route::get('/delete-order/{id}', 'OrderController@softDeleteOrder')->name('DeleteOrder');
+
 Route::get('/purchase/create', 'PurchaseController@create')->name('createPurchasePage');
 
 Route::post('/purchase/add', 'PurchaseController@purchase')->name('AddPurchase');
@@ -51,3 +55,7 @@ Route::get('/purchase/edit/{id}', 'PurchaseController@edit_purchase')->name('edi
 Route::post('/purchase/update/{id}', 'PurchaseController@update_purchase')->name('UpdatePurchase');
 
 Route::get('/purchase/delete/{id}', 'PurchaseController@delete_purchase')->name('deletePurchase');
+
+Route::get('/users', 'HomeController@users')->name('Users');
+
+Route::post('/add-user', 'HomeController@add_user')->name('AddUser');

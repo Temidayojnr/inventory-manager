@@ -34,4 +34,9 @@ class Order extends Model
     {
         return $this->belongsTo(College::class, 'college_id');
     }
+
+    public function who_deleted()
+    {
+        return $this->belongsTo(User::class, 'deleted_by');
+    }
 }

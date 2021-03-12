@@ -52,14 +52,31 @@ class OrderController extends Controller
 
         $order->invoice_id = $request->invoice_id;
 
-        // $order->total_cost = Order::total_cost($request);
-        // $request->merge(['total_cost'=>$order->quantity + $order->unit_price]);
         $order->total_cost = $request->quantity * $request->unit_price;
 
         $order->created_by = Auth::user()->id;
 
         $order->save();
 
+        // foreach( $productDetails as $pro) {
+        //     ProductsAttribute::where('product_id',  $pro->product_id)->decrement('Inventory', $pro->quantity);
+        // }
+        // DB::table('Inventory')->where('product_name', $request->input('product_name'))->decrement('product_quantity', $request->product_quantity);
+
         return redirect()->back()->with('success', 'Order created Successfully!!');;
+    }
+
+
+    public function softDeleteOrder($id)
+    {
+        $order = Order::find($id);
+
+        $order->isDeleted = 1;
+
+        $order->deleted_by = Auth::user()->id;
+
+        $order->update();
+
+        return redirect()->route('Orders')->with('success', 'Order Removed successfully');
     }
 }

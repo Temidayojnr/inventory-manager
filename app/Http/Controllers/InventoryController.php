@@ -8,6 +8,7 @@ use App\Supplier;
 use App\Brand;
 use App\Order;
 use Auth;
+use DB;
 
 class InventoryController extends Controller
 {
@@ -28,7 +29,17 @@ class InventoryController extends Controller
         $inventory = Inventory::all();
         $orders = Order::count();
         $available_product = Inventory::where('status', 1)->count();
+        // $product_name = Inventory::all();
         return view('Inventory.dashboard', compact('products', 'inventory', 'orders', 'available_product'));
+    }
+
+    public function chart()
+    {
+        $result = \DB::table('inventory')
+                ->where('product_name','=','Products')
+                ->orderBy('created_at', 'ASC')
+                ->get();
+        return response()->json($result);
     }
 
     public function products()
