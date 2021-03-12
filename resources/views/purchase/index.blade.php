@@ -34,6 +34,11 @@
                                     <th>Supplier Name</th>
                                     <th>Item Name</th>
                                     <th>Unit Price</th>
+                                    <th>Qunatity</th>
+                                    <th>Supplier's Email</th>
+                                    <th>Date Supplied</th>
+                                    <th>Supplier's Phone Number</th>
+                                    <th>Brand Name</th>
                                     <th>Total Amount</th>
                                     <th>Invoice ID</th>
                                     <th>Manage</th>
@@ -47,6 +52,11 @@
                                         <td>{{$p->supplier->name}}</td>
                                         <td>{{$p->product_name}}</td>
                                         <td>₦ {{number_format($p->unit_price)}}</td>
+                                        <td>{{number_format($p->quantity)}}</td>
+                                        <td>{{$p->supplier_email}}</td>
+                                        <td>{{$p->date_supplied}}</td>
+                                        <td>{{$p->phone_number}}</td>
+                                        <td>{{$p->brand->name}}</td>
                                         <th>₦ {{number_format($p->total_amount)}}</th>
                                         <th>{{$p->invoice_id}}</th>
                                         <td>
