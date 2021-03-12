@@ -73,8 +73,9 @@
                                         </th>
                                         <td>{{$u->created_at->format('jS F Y') ?? ''}}</td>
                                         <td>
-                                            
+
                                         </td>
+                                        {{-- *****TODO:: ADD DELETE USER FUNCTION  HERE  --}}
                                         {{-- <td>
                                             <a href="{{route('editPurchase', $u->id)}}" class="btn btn-info"><i class="fa fa-info"></i>Edit</a>
                                             <a href="#" onclick="deleteItem('{{$u->id}}')" class="btn btn-danger">Delete</a>

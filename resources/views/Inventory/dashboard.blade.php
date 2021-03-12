@@ -126,29 +126,40 @@
             </div>
         </div>
 
+        @if (Auth::user()->is_admin == 1)
         <div class="row">
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
 
-                        <h4 class="card-title mb-4">Bar Chart</h4>
+                        <h4 class="card-title mb-4">Users</h4>
 
                         <div class="row text-center">
-                            <div class="col-4">
-                                <h5 class="mb-0">2541</h5>
-                                <p class="text-muted text-truncate">Activated</p>
-                            </div>
-                            <div class="col-4">
-                                <h5 class="mb-0">84845</h5>
-                                <p class="text-muted text-truncate">Pending</p>
-                            </div>
-                            <div class="col-4">
-                                <h5 class="mb-0">12001</h5>
-                                <p class="text-muted text-truncate">Deactivated</p>
+                            <div class="table-responsive">
+                                <table table class="project-list-table table-nowrap table-centered table-borderless" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                    <thead>
+                                        <th>Name</th>
+                                        <th>Staff Type</th>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($user as $u)
+                                            <tr>
+                                                <td>{{$u->name}}</td>
+                                                <td>
+                                                    @if ($u->is_admin == 1)
+                                                        <span class="badge badge-success">Admin</span>
+                                                    @else
+                                                    <span class="badge badge-info">Admin</span>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
 
-                        <canvas id="bar" height="300"></canvas>
+                        {{-- <canvas id="bar" height="300"></canvas> --}}
 
                     </div>
                 </div>
@@ -165,14 +176,6 @@
                                 <h5 class="mb-0">{{$products}}</h5>
                                 <p class="text-muted text-truncate">Products</p>
                             </div>
-                            {{-- <div class="col-4">
-                                <h5 class="mb-0">69421</h5>
-                                <p class="text-muted text-truncate">Pending</p>
-                            </div>
-                            <div class="col-4">
-                                <h5 class="mb-0">89854</h5>
-                                <p class="text-muted text-truncate">Deactivated</p>
-                            </div> --}}
                         </div>
                         {{-- <div id="pie_chart" style="width:750px; height:450px;">
 
@@ -183,6 +186,68 @@
                 </div>
             </div>
         </div>
+        @else
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">Product</h4>
+                        <div class="table-responsive">
+                            <table id="datatable" class="table project-list-table table-nowrap table-centered table-borderless" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Brand</th>
+                                        <th>Product Name</th>
+                                        <th>Unit</th>
+                                        <th>Total Stock</th>
+                                        <th>Unit Price</th>
+                                        <th>Total Stock Value</th>
+                                        <!--<th>Supplier</th>-->
+                                        {{-- <th>Date Supplied</th> --}}
+                                        <th>Status</th>
+                                        <th>Manage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($inventory as $i)
+                                        <tr>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$i->brand->name}}</td>
+                                            <td>{{$i->product_name}}</td>
+                                            <th>EACH</th>
+                                            <th>{{number_format($i->product_quantity)}}</th>
+                                            <th>₦ {{number_format($i->product_amount)}}</th>
+                                            <th>₦ {{number_format($i->stock_value)}}</th>
+                                            {{-- <td>{{$i->date_supplied->format('jS F Y')}}</td> --}}
+                                            <th>
+                                                @if ($i->status == 1)
+                                                    <span class="badge badge-pill badge-soft-success font-size-12">Available</span>
+                                                @endif
+                                            </th>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
+                                                        <i class="mdi mdi-dots-horizontal font-size-18"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item btn-primary" href="{{route('EditProduct', $i->id)}}"><i class="fa fa-info"></i> Edit</a>
+                                                        <a class="dropdown-item btn-danger" href="#" onclick="deleteItem('{{$i->id}}')"><i class="fa fa-trash"></i> Delete</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>    
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- end table-responsive -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
+
 
 
     </div> <!-- container-fluid -->
@@ -230,4 +295,27 @@
               });
           });
         });
+</script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+    function deleteItem(id){
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, It ceases to Exist!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                window.location.href = "/products/"+id;
+            swal("Poof! product has been deleted!", {
+                icon: "success",
+            });
+            } else {
+            swal("Product is safe!");
+            }
+        });
+    }
 </script>
