@@ -59,3 +59,7 @@ Route::get('/purchase/delete/{id}', 'PurchaseController@delete_purchase')->name(
 Route::get('/users', 'HomeController@users')->name('Users');
 
 Route::post('/add-user', 'HomeController@add_user')->name('AddUser');
+
+Route::post('/change-status', 'InventoryController@InventoryStatus')->name('ChangeStatus');
+
+Route::get('/delete-user/{id}', 'HomeController@deleteUser')->name('DeleteUser');

@@ -110,4 +110,16 @@ class InventoryController extends Controller
         $inventory->delete();
         return redirect()->back();
     }
+
+    public function InventoryStatus(Request $request)
+    {
+        $inventory = Inventory::find($request->id);
+        $inventory->status = $request->status;
+        $inventory->save();
+        if ($request->status == 1) {
+            return 'Product Marked Available.';
+        } else {
+            return 'Product Marked Unavailable.';
+        }
+    }
 }

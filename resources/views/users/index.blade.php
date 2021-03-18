@@ -72,14 +72,11 @@
                                             @endif
                                         </th>
                                         <td>{{$u->created_at->format('jS F Y') ?? ''}}</td>
-                                        <td>
-
-                                        </td>
                                         {{-- *****TODO:: ADD DELETE USER FUNCTION  HERE  --}}
-                                        {{-- <td>
-                                            <a href="{{route('editPurchase', $u->id)}}" class="btn btn-info"><i class="fa fa-info"></i>Edit</a>
+                                        <td>
+                                            {{-- <a href="{{route('editPurchase', $u->id)}}" class="btn btn-info"><i class="fa fa-info"></i>Edit</a> --}}
                                             <a href="#" onclick="deleteItem('{{$u->id}}')" class="btn btn-danger">Delete</a>
-                                        </td> --}}
+                                        </td>
                                     </tr>    
                                 @endforeach
                             </tbody>
@@ -154,12 +151,12 @@
             dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
-                window.location.href = "/purchase/delete/"+id;
-            swal("Poof! purchase item has been deleted!", {
+                window.location.href = "/delete-user/"+id;
+            swal("Poof! Store User has been deleted!", {
                 icon: "success",
             });
             } else {
-            swal("Purchase Item is safe!");
+            swal("Store User is safe!");
             }
         });
     }

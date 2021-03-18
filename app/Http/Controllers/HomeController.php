@@ -56,4 +56,11 @@ class HomeController extends Controller
         return redirect()->route('Users')->with('success', 'User Created');
 
     }
+
+    public function deleteUser($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->back()->with('success', 'Store User Deleted Successfully!!');
+    }
 }
