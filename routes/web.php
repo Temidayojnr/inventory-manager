@@ -34,7 +34,7 @@ Route::get('/edit-product/{id}', 'InventoryController@edit_product')->name('Edit
 
 Route::post('/update-product/{id}', 'InventoryController@updateProduct')->name('UpdateProduct');
 
-Route::get('/product/{id}', 'InventoryController@deleteInventory')->name('DeleteProduct');
+Route::get('/products/{id}', 'InventoryController@deleteInventory')->name('DeleteProduct');
 
 Route::get('/orders', 'OrderController@index')->name('Orders');
 
