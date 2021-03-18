@@ -32,6 +32,14 @@ class OrderController extends Controller
 
     public function createOrder(Request $request)
     {
+        $request->validate([
+            'product_id' => ['required'],
+            'quantity' => ['integer', 'required'],
+            'requisition_date' => ['date', 'required'],
+            'issue_date' => ['date', 'before_or_equal:requisition_date', 'required'], 
+        ]);
+
+
         $order = new Order;
 
         $order->college_id = $request->college_id;
