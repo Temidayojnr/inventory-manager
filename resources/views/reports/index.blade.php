@@ -28,7 +28,7 @@
                     <div class="card-body">
                         <h4 class="card-title mb-4">Get Reports</h4>
                             <div class="row">
-                                <div class="col-md-6">Total Data</div>
+                                <div class="col-md-6">Total Data <b><span id="total_records"></span></b></div>
                                 <div class="col-md-6">
                                     <label>From</label>
                                     <div class="input-group">
@@ -76,7 +76,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title mb-4">Product <b><span id="total_records"></span></b></h4>
+                        <h4 class="card-title mb-4">Product</h4>
                         <div class="table-responsive">
                             <table id="datatable" class="table project-list-table table-nowrap table-centered table-borderless" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead class="thead-light">
@@ -89,7 +89,7 @@
                                         {{-- <th>Status</th> --}}
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody >
 
                                 </tbody>
                             </table>
@@ -120,7 +120,7 @@
     
      $('.input-group').datepicker({
       todayBtn: 'linked',
-      format: 'yyyy-mm-dd',
+    //   format: 'yyyy-mm-dd',
       autoclose: true
      });
     

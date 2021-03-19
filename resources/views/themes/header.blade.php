@@ -19,6 +19,14 @@
     <link href="{{asset('template/vertical/assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{asset('template/vertical/assets/libs/%40chenfengyuan/datepicker/datepicker.min.css')}}">
 
+    <!-- DataTables -->
+    <link href="{{asset('template/vertical/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('template/vertical/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="{{asset('template/vertical/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />   
+
+
     <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
 
     <!-- Bootstrap Css -->

@@ -27,7 +27,7 @@ class ReportController extends Controller
         {
             $data = DB::table('Inventory')->orderBy('date_supplied', 'desc')->get();
         }
-            return response()->json($data);
+            return json_encode($data);
         }
     }
 }

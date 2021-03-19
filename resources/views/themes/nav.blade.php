@@ -17,7 +17,6 @@
                 <a href="/" style="padding-top: 20%;" class="logo logo-light">
                     <span class="logo-sm">
                         <img style="padding-top: 20%;" src="{{asset('img/wusto.jpeg')}}" alt="" height="22">
-                        {{-- <h3 style="color: white">IM</h3> --}}
                     </span>
                     <span class="logo-lg">
                         <img src="{{asset('img/wusto.jpeg')}}" alt="" height="19">
@@ -26,12 +25,12 @@
                 </a>
             </div>
 
-            <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+            <button style="padding-top: 20px;" type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
                 <i class="fa fa-fw fa-bars"></i>
             </button>
 
             <!-- App Search-->
-            <form class="app-search d-none d-lg-block">
+            <form style="padding-top: 30px;" class="app-search d-none d-lg-block">
                 <div class="position-relative">
                     <input type="text" class="form-control" placeholder="Search...">
                     <span class="bx bx-search-alt"></span>
