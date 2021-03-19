@@ -41,6 +41,6 @@
 
         <!-- JAVASCRIPT -->
         @include('themes.scripts')
-
+        @yield('scripts')
     </body>
 </html>

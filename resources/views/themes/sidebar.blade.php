@@ -45,10 +45,14 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="/" class="waves-effect">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-file"></i>
                         <span key="t-layouts">Reports</span>
                     </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="/reports" key="t-horizontal">Inventory Report</a></li>
+                        {{-- <li><a href="/purchase/create" key="t-vertical">Create Purchase</a></li> --}}
+                    </ul>
                 </li>
 
                 @if (Auth::user()->is_admin)

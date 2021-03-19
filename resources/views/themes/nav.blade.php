@@ -14,14 +14,14 @@
                     </span>
                 </a>
 
-                <a href="/" style="padding-top: 5%;" class="logo logo-light">
+                <a href="/" style="padding-top: 20%;" class="logo logo-light">
                     <span class="logo-sm">
-                        {{-- <img src="{{asset('template/vertical/assets/images/logo-light.svg')}}" alt="" height="22"> --}}
-                        <h3 style="color: white">IM</h3>
+                        <img style="padding-top: 20%;" src="{{asset('img/wusto.jpeg')}}" alt="" height="22">
+                        {{-- <h3 style="color: white">IM</h3> --}}
                     </span>
                     <span class="logo-lg">
-                        {{-- <img src="{{asset('template/vertical/assets/images/logo-light.png')}}" alt="" height="19"> --}}
-                        <h3 style="color: white">Inventory Manager</h3>
+                        <img src="{{asset('img/wusto.jpeg')}}" alt="" height="19">
+                        <h4 style="color: white">Wesley Inventory System</h4>
                     </span>
                 </a>
             </div>
