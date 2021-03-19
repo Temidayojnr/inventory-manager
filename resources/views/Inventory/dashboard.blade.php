@@ -136,7 +136,7 @@
 
                         <div class="row text-center">
                             <div class="table-responsive">
-                                <table table class="project-list-table table-nowrap table-centered table-borderless" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                <table table id="datatable" class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer dtr-inline" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                         <th>Name</th>
                                         <th>Staff Type</th>

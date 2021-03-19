@@ -26,7 +26,7 @@
                 <div class="card-body">
                     <h4 class="card-title mb-4">Purchases</h4>
                     <div class="table-responsive">
-                        <table id="datatable" class="table project-list-table table-nowrap table-centered table-borderless" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                        <table id="datatable-buttons" class="table project-list-table table-nowrap table-centered table-borderless" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead class="thead-light">
                                 <tr>
                                     <th>ID</th>
