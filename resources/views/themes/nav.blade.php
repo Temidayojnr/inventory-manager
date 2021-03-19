@@ -16,7 +16,7 @@
 
                 <a href="/" style="padding-top: 20%;" class="logo logo-light">
                     <span class="logo-sm">
-                        <img style="padding-top: 20%;" src="{{asset('img/wusto.jpeg')}}" alt="" height="22">
+                        <img style="padding-top: 26%;" src="{{asset('img/wusto.jpeg')}}" alt="" height="22">
                     </span>
                     <span class="logo-lg">
                         <img src="{{asset('img/wusto.jpeg')}}" alt="" height="19">

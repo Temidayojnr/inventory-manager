@@ -10,6 +10,7 @@
 
                 <li>
                     <a href="/" class="waves-effect">
+                        <i class="bx bx-home-circle"></i>
                         <span key="t-dashboards">Dashboard</span>
                     </a>
                 </li>
