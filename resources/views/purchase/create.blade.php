@@ -141,3 +141,14 @@
         </div>
     </div>
 @endsection
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $("document").ready(function(){
+        setTimeout(function(){
+            $("div.alert").remove();
+        }, 5000 ); // 5 secs
+
+    });
+</script>

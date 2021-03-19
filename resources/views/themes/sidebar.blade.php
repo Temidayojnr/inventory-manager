@@ -1,6 +1,6 @@
 <div class="vertical-menu">
 
-    <div data-simplebar class="h-100" style="background: purple;">
+    <div data-simplebar class="h-100" style="background: #301934;">
 
         <!--- Sidemenu -->
         <div id="sidebar-menu">
@@ -26,7 +26,7 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-file"></i>
+                        <i class="bx bx-list-ol"></i>
                         <span key="t-layouts">Orders</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -36,7 +36,7 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-file"></i>
+                        <i class="bx bx-cart-alt"></i>
                         <span key="t-layouts">Purchase</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
