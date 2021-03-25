@@ -7,6 +7,9 @@ use App\Inventory;
 use App\Supplier;
 use App\Brand;
 use App\User;
+use App\College;
+use App\Department;
+use DB;
 use Auth;
 
 class HomeController extends Controller
@@ -39,7 +42,7 @@ class HomeController extends Controller
         if (Auth::check() && Auth::user()->is_admin) {
             $user = User::all();
             return view('users.index', compact('user'));
-        } else { 
+        } else {
             return view('Inventory.dashboard');
         }
     }
@@ -62,5 +65,13 @@ class HomeController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
         return redirect()->back()->with('success', 'Store User Deleted Successfully!!');
+    }
+
+    public function get_by_college($id)
+    {
+        $department = DB::table("departments")
+            ->where("college_id", $id)
+            ->pluck("department_name","id");
+            return response()->json($department);
     }
 }

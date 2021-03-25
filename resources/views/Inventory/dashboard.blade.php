@@ -113,7 +113,7 @@
                                 </div>
                                 <div class="text-muted mt-4">
                                     <h4>{{$available_product}}<i class="mdi mdi-chevron-up ml-1 text-success"></i></h4>
-                                    
+
                                     <div class="d-flex">
                                         <span class="badge badge-soft-warning font-size-12"> 0% </span> <span class="ml-2 text-truncate">From previous period</span>
                                     </div>
@@ -149,7 +149,7 @@
                                                     @if ($u->is_admin == 1)
                                                         <span class="badge badge-success">Admin</span>
                                                     @else
-                                                    <span class="badge badge-info">Admin</span>
+                                                    <span class="badge badge-info">Store Keeper</span>
                                                     @endif
                                                 </td>
                                             </tr>
@@ -236,7 +236,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                        </tr>    
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>

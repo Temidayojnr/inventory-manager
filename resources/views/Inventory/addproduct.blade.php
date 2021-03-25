@@ -8,7 +8,7 @@
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <h4 class="mb-0 font-size-18">Product</h4>
-  
+
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Stocks</a></li>
@@ -35,17 +35,17 @@
                     </ul>
                 </div>
             @endif
-  
-  
+
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title mb-4">Add Product</h4>
-            
+
                             <form method="POST" action="{{route('AddProduct')}}">
                                 {{ csrf_field() }}
-                                
+
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -54,7 +54,7 @@
                                         </div>
                                     </div>
                                 </div>
-            
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -71,7 +71,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -84,7 +84,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="Supplier_id">Supplier</label>
@@ -105,8 +105,18 @@
                                             <input type="date" name="date_supplied" class="form-control" id="date_supplied">
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="unit_stock">UNIT</label>
+                                            <select name="unit_stock" class="form-control" id="">
+                                                <option value="">Select Unit</option>
+                                                <option value="EACH">EACH</option>
+                                                <option value="DOZEN">DOZEN</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-            
+
                                 <div>
                                     <button type="submit" class="btn btn-primary w-md">Submit <i class="fa fa-arrow"></i></button>
                                 </div>

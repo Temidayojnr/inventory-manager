@@ -8,7 +8,7 @@
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <h4 class="mb-0 font-size-18">Orders</h4>
-  
+
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Orders</a></li>
@@ -36,25 +36,27 @@
             </ul>
         </div>
     @endif
-  
-  
+
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title mb-4">Create Order</h4>
-            
+
                             <form method="POST" action="{{route('CreateOrder')}}">
                                 {{ csrf_field() }}
-                                
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="department_id">Department:</label>
-                                            <select name="department_id" class="form-control" id="department_id">
-                                                <option value="">Select department...</option>
-                                                @foreach ($departments as $d)
-                                                    <option value="{{$d->id}}">{{$d->department_name}}</option>
+                                            <label for="college">College</label>
+                                            <select name="college_id" id="college" class="form-control">
+                                                <option value="" selected disabled>Select college</option>
+                                                @foreach($college as $c)
+                                                    <option value="{{ $c->id }}">
+                                                        {{ $c->college_name }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -62,17 +64,14 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="college_id">College:</label>
-                                            <select name="college_id" class="form-control" id="college_id">
-                                                <option value="">Select College...</option>
-                                                @foreach ($college as $c)
-                                                    <option value="{{$c->id}}">{{$c->college_name}}</option>
-                                                @endforeach
+                                            <label for="department">Department</label>
+                                            <select name="department_id" id="department" class="form-control">
+                                                {{-- <option value="department">Select Department</option> --}}
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-            
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -94,7 +93,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -102,7 +101,7 @@
                                             <input type="text" name="requisition_number" class="form-control" id="requisition_number">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="requisition_date">Requisition Date</label>
@@ -142,7 +141,7 @@
                                         </div>
                                     </div>
                                 </div>
-            
+
                                 <div>
                                     <button type="submit" class="btn btn-primary w-md">Submit <i class="fa fa-arrow"></i></button>
                                 </div>
@@ -164,4 +163,32 @@
         }, 5000 ); // 5 secs
 
     });
+</script>
+
+<script>
+    
+$(document).ready(function() {
+    $('select[name="college_id"]').on('change',function(){
+
+        var collegeID= $(this).val();
+        console.log(collegeID);
+        if (collegeID) {
+            $.ajax({
+            url: "/get_department/"+collegeID,
+            type: "GET",
+            dataType: "json",
+            success: function(data){
+            console.log(data);
+            $('select[name="department_id"]').empty();
+            $.each(data,function(key,value){
+                $('select[name="department_id"]').append('<option value="'+key+'">'+value+'</option>');
+            });
+            }
+            });
+        }else {
+                $('select[name="department_id"]').empty();
+        }
+    });
+})
+
 </script>

@@ -14,7 +14,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $college = College::all();
+        $college = College::all()->pluck('college_name', 'id');
         $departments = Department::all();
         $inventory = Inventory::all();
         $orders = Order::all();
@@ -36,7 +36,7 @@ class OrderController extends Controller
             'product_id' => ['required'],
             'quantity' => ['integer', 'required'],
             'requisition_date' => ['date', 'required'],
-            'issue_date' => ['date', 'before_or_equal:requisition_date', 'required'], 
+            'issue_date' => ['date', 'before_or_equal:requisition_date', 'required'],
         ]);
 
 
