@@ -22,7 +22,9 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="/products" key="t-horizontal">View all Products</a></li>
-                        <li><a href="/add" key="t-vertical">Add Product</a></li>
+                        @if (Auth::user()->is_admin == 1)
+                            <li><a href="/add" key="t-vertical">Add Product</a></li>
+                        @endif
                     </ul>
                 </li>
                 <li>

@@ -30,4 +30,23 @@ class ReportController extends Controller
             return json_encode($data);
         }
     }
+
+    public function get_custom_posts()
+    {
+        $postsQuery = Inventory::query();
+
+        $start_date = (!empty($_GET["start_date"])) ? ($_GET["start_date"]) : ('');
+        $end_date = (!empty($_GET["end_date"])) ? ($_GET["end_date"]) : ('');
+
+        if($start_date && $end_date){
+
+         $start_date = date('Y-m-d', strtotime($start_date));
+         $end_date = date('Y-m-d', strtotime($end_date));
+
+         $postsQuery->whereRaw("date(inventory.created_at) >= '" . $start_date . "' AND date(inventory.created_at) <= '" . $end_date . "'");
+        }
+        $posts = $postsQuery->select('*');
+        return datatables()->of($posts)
+            ->make(true);
+    }
 }

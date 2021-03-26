@@ -5,6 +5,10 @@
 <script src="{{asset('template/vertical/assets/libs/simplebar/simplebar.min.js')}}"></script>
 <script src="{{asset('template/vertical/assets/libs/node-waves/waves.min.js')}}"></script>
 
+{{-- sweet alert  --}}
+<script src="{{asset('js/swal.min.js')}}"></script>
+{{-- sweet alert  --}}
+
 <script src="{{asset('template/vertical/assets/libs/select2/js/select2.min.js')}}"></script>
 <script src="{{asset('template/vertical/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
 <script src="{{asset('template/vertical/assets/libs/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js')}}"></script>
@@ -50,5 +54,5 @@
     $(function () {
         $('#datetimepicker1').datetimepicker();
     });
-    </script> 
+    </script>
 @endsection

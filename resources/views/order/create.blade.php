@@ -121,7 +121,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="issue_date">Issue Date</label>
-                                            <input type="date" name="issue_date" class="form-control" id="issue_date">
+                                        <input type="date" name="issue_date" class="form-control" id="issue_date">
                                         </div>
                                     </div>
                                 </div>
@@ -163,6 +163,14 @@
         }, 5000 ); // 5 secs
 
     });
+</script>
+
+{{-- <script>
+    var date = new Date();
+    document.getElementById("issue_date").value = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + String(date.getDate()).padStart(2,'0');
+</script> --}}
+<script>
+    $(".date-pick").datepicker('setDate', new Date());
 </script>
 
 <script>

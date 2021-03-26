@@ -69,3 +69,5 @@ Route::get('/reports', 'ReportController@index');
 Route::post('/reports/fetch_data', 'ReportController@fetch_data')->name('FetchData');
 
 Route::get('/get_department/{id}', 'HomeController@get_by_college')->name('getCollege');
+
+Route::get('/get_custom_report', 'ReportController@get_custom_posts')->name('getCCC');

@@ -9,6 +9,7 @@ use App\College;
 use App\Department;
 use App\Order;
 use Auth;
+use DB;
 
 class OrderController extends Controller
 {
@@ -25,7 +26,7 @@ class OrderController extends Controller
     {
         $college = College::all();
         $departments = Department::all();
-        $inventory = Inventory::all();
+        $inventory = Inventory::where('status', true)->get();
         $orders = Order::all();
         return view('order.create', compact('college', 'departments', 'inventory', 'orders'));
     }
@@ -64,12 +65,10 @@ class OrderController extends Controller
 
         $order->created_by = Auth::user()->id;
 
+        DB::table('inventory')->decrement('product_quantity', $order->quantity);
+
         $order->save();
 
-        // foreach( $productDetails as $pro) {
-        //     ProductsAttribute::where('product_id',  $pro->product_id)->decrement('Inventory', $pro->quantity);
-        // }
-        // DB::table('Inventory')->where('product_name', $request->input('product_name'))->decrement('product_quantity', $request->product_quantity);
 
         return redirect()->back()->with('success', 'Order created Successfully!!');;
     }

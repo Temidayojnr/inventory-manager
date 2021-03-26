@@ -32,7 +32,7 @@
                                 <div class="col-md-6">
                                     <label>From</label>
                                     <div class="input-group">
-                                        <input type="text" name="from_date" id="from_date" readonly class="form-control" placeholder="dd M, yyyy"  data-date-format="dd M, yyyy" data-provide="datepicker" data-date-autoclose="true">
+                                        <input type="text" name="from_date" id="from_date" readonly class="form-control" placeholder="dd M, yyyy"  data-date-format="mm-dd-yy" data-provide="datepicker" data-date-autoclose="true">
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                                         </div>
@@ -40,7 +40,7 @@
 
                                     <label>To</label>
                                     <div class="input-group">
-                                        <input type="text" name="to_date" id="to_date" readonly class="form-control" placeholder="dd M, yyyy"  data-date-format="dd M, yyyy" data-provide="datepicker" data-date-autoclose="true">
+                                        <input type="text" name="to_date" id="to_date" readonly class="form-control" placeholder="dd M, yyyy"  data-date-format="mm-dd-yy" data-provide="datepicker" data-date-autoclose="true">
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                                         </div>
