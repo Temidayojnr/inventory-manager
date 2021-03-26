@@ -105,16 +105,6 @@
                                             <input type="date" name="date_supplied" class="form-control" id="date_supplied">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="unit_stock">UNIT</label>
-                                            <select name="unit_stock" class="form-control" id="">
-                                                <option value="">Select Unit</option>
-                                                <option value="EACH">EACH</option>
-                                                <option value="DOZEN">DOZEN</option>
-                                            </select>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <div>

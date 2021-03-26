@@ -66,7 +66,7 @@
                                         <div class="form-group">
                                             <label for="department">Department</label>
                                             <select name="department_id" id="department" class="form-control">
-                                                {{-- <option value="department">Select Department</option> --}}
+                                                {{-- AJAX FETCH RESULT HERE  --}}
                                             </select>
                                         </div>
                                     </div>
@@ -166,7 +166,7 @@
 </script>
 
 <script>
-    
+
 $(document).ready(function() {
     $('select[name="college_id"]').on('change',function(){
 

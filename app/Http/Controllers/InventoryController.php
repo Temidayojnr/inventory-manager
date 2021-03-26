@@ -62,6 +62,8 @@ class InventoryController extends Controller
             'product_name' => ['string', 'required'],
             'product_quantity' => ['integer', 'required'],
             'date_supplied' => ['date', 'required'],
+            'supplier_id' => ['required'],
+            'brand_id' => ['required'],
         ]);
 
         $inventory = new Inventory();

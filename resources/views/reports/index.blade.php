@@ -62,7 +62,7 @@
                                 <button type="button" name="filter" id="filter" class="btn btn-primary w-md">Filter <i class="fa fa-arrow"></i></button>&nbsp;
                                 <button type="button" name="refresh" id="refresh" class="btn btn-primary w-md">Refresh <i class="fa fa-circle"></i></button>
                             </div>
-        
+
                             {{-- <div>
                                 <button type="button" name="filter" id="filter" class="btn btn-primary w-md">Filter <i class="fa fa-arrow"></i></button>
                                 <button type="button" name="refresh" id="refresh" class="btn btn-primary w-md">Refresh <i class="fa fa-circle"></i></button>
@@ -114,21 +114,21 @@
 
 <script>
     $(document).ready(function(){
-    
+
      var date = new Date();
      console.log(date);
-    
+
      $('.input-group').datepicker({
       todayBtn: 'linked',
     //   format: 'yyyy-mm-dd',
       autoclose: true
      });
-    
+
      var _token = $('input[name="_token"]').val();
      console.log(_token);
-    
+
      fetch_data();
-    
+
      function fetch_data(from_date = '', to_date = '')
      {
       $.ajax({
@@ -153,7 +153,7 @@
        }
       })
      }
-    
+
      $('#filter').click(function(){
       var from_date = $('#from_date').val();
       var to_date = $('#to_date').val();
@@ -166,13 +166,13 @@
        alert('Both Date is required');
       }
      });
-    
+
      $('#refresh').click(function(){
       $('#from_date').val('');
       $('#to_date').val('');
       fetch_data();
      });
-    
-    
+
+
     });
     </script>
