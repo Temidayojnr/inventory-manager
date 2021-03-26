@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-0 font-size-18">Inventory Reports</h4>
+                    <h4 class="mb-0 font-size-18">Purchase Reports</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
@@ -26,7 +26,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title mb-4">Get Reports</h4>
+                        <h4 class="card-title mb-4">Get Purchase Report</h4>
                             <div class="row">
                                 <div class="col-md-6">Total Data <b><span id="total_records"></span></b></div>
                                     <div class="form-group">
@@ -62,8 +62,11 @@
                                     <tr>
                                         {{-- <th>ID</th> --}}
                                         <th>Product Name</th>
-                                        <th>Unit</th>
-                                        <th>stock Value</th>
+                                        <th>Unit Price</th>
+                                        <th>Brand</th>
+                                        <th>Supplier</th>
+                                        <th>Supplier Email</th>
+                                        <th>Total Quantity</th>
                                         <th>Date Supplied</th>
                                         {{-- <th>Status</th> --}}
                                     </tr>
@@ -111,7 +114,7 @@
      function fetch_data(from_date = '', to_date = '')
      {
       $.ajax({
-       url:"/reports/fetch_data",
+       url:"/reports/fetch_purchase",
        method:"POST",
        data:{from_date:from_date, to_date:to_date, _token:_token},
        dataType:"json",
@@ -122,9 +125,12 @@
         for(var count = 0; count < data.length; count++)
         {
          output += '<tr>';
-         output += '<td>' + data[count].product_name + '</td>';
-         output += '<td>' + data[count].product_quantity + '</td>';
-         output += '<td>' + data[count].stock_value + '</td>';
+         output += '<td>' + data[count].product.product_name + '</td>';
+         output += '<td>' + data[count].unit_price + '</td>';
+         output += '<td>' + data[count].brand.name + '</td>';
+         output += '<td>' + data[count].supplier.name + '</td>';
+         output += '<td>' + data[count].supplier_email + '</td>';
+         output += '<td>' + data[count].quantity + '</td>';
          output += '<td>' + data[count].date_supplied + '</td>';
         //  output += '<td>' + data[count].status + '</td></tr>';
         }

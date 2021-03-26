@@ -53,8 +53,9 @@
                         <span key="t-layouts">Reports</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/reports" key="t-horizontal">Inventory Report</a></li>
-                        {{-- <li><a href="/purchase/create" key="t-vertical">Create Purchase</a></li> --}}
+                        <li><a href="/reports/inventory" key="t-horizontal">Inventory Report</a></li>
+                        <li><a href="/reports/purchase" key="t-vertical">Purchase Report</a></li>
+                        <li><a href="" key="t-vertical">Order Report</a></li>
                     </ul>
                 </li>
 

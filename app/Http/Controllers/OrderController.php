@@ -65,9 +65,22 @@ class OrderController extends Controller
 
         $order->created_by = Auth::user()->id;
 
-        DB::table('inventory')->decrement('product_quantity', $order->quantity);
+        // dd($request->all());
 
-        $order->save();
+        // get the inventory with that specific product id
+        $inventory = Inventory::where("id", $request->product_id)->first();
+
+        if($inventory->product_quantity < $request->quantity){
+            return redirect()->back()->with('error', 'Insufficient quantity, kindly refill or restock your inventory');
+        } else {
+            // qty
+            $new_quantity = $inventory->product_quantity - $request->quantity;
+            $update_inventory = Inventory::find($inventory->id);
+            $update_inventory->product_quantity = $new_quantity;
+            $update_inventory->update();
+
+            $order->save();
+        }
 
 
         return redirect()->back()->with('success', 'Order created Successfully!!');;

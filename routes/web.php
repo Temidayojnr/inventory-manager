@@ -64,10 +64,12 @@ Route::post('/change-status', 'InventoryController@InventoryStatus')->name('Chan
 
 Route::get('/delete-user/{id}', 'HomeController@deleteUser')->name('DeleteUser');
 
-Route::get('/reports', 'ReportController@index');
+Route::get('/reports/inventory', 'ReportController@index');
 
 Route::post('/reports/fetch_data', 'ReportController@fetch_data')->name('FetchData');
 
-Route::get('/get_department/{id}', 'HomeController@get_by_college')->name('getCollege');
+Route::get('/reports/purchase', 'ReportController@purchase');
 
-Route::get('/get_custom_report', 'ReportController@get_custom_posts')->name('getCCC');
+Route::post('/reports/fetch_purchase', 'ReportController@fetch_data');
+
+Route::get('/get_department/{id}', 'HomeController@get_by_college')->name('getCollege');

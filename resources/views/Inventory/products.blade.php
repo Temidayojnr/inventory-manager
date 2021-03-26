@@ -81,9 +81,11 @@
                 </div>
             </div>
 
-            <div class="float-right align-items-center justify-content-between mb-4">
-                <a href="/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-pen fa-sm text-white-50"></i>Add Product</a>
-            </div>
+            @if (Auth::user()->is_admin == 1)
+                <div class="float-right align-items-center justify-content-between mb-4">
+                    <a href="/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-pen fa-sm text-white-50"></i>Add Product</a>
+                </div>
+            @endif
         </div>
     </div>
     <!-- end page title -->

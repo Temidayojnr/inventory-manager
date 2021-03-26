@@ -8,7 +8,7 @@
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <h4 class="mb-0 font-size-18">All Orders</h4>
-  
+
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Orders</a></li>
@@ -29,8 +29,13 @@
                 <strong>{{ $message }}</strong>
             </div>
         @endif
+        @if ($message = Session::get('error'))
+            <div class="alert alert-danger">
+                <strong>{{ $message }}</strong>
+            </div>
+        @endif
 
-        @if (count($errors) > 0)
+        {{-- @if (count($errors) > 0)
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -38,9 +43,9 @@
                     @endforeach
                 </ul>
             </div>
-        @endif
+        @endif --}}
 
-    @if (Auth::user()->is_admin)
+    @if (Auth::user()->is_admin == 1)
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
@@ -70,7 +75,7 @@
                                             <tr>
                                                 <td>{{$order->department->department_name}}</td>
                                                 <td>{{$order->college->college_name}}</td>
-                                                <td>{{$order->product->product_name}}</td>
+                                                <td>{{$order->product->product_name ?? ''}}</td>
                                                 <td>₦ {{number_format($order->unit_price)}}</td>
                                                 <th>{{number_format($order->quantity)}}</th>
                                                 <th>₦ {{number_format($order->total_cost)}}</th>
@@ -124,7 +129,7 @@
                                             <tr>
                                                 <td>{{$order->department->department_name}}</td>
                                                 <td>{{$order->college->college_name}}</td>
-                                                <td>{{$order->product->product_name}}</td>
+                                                <td>{{$order->product->product_name ?? ''}}</td>
                                                 <td>₦ {{number_format($order->unit_price)}}</td>
                                                 <th>{{number_format($order->quantity)}}</th>
                                                 <th>₦ {{number_format($order->total_cost)}}</th>
@@ -136,7 +141,7 @@
                                                     <a href="{{route('DeleteOrder', $order->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i> Delete Order</a>
                                                 </td>
                                             </tr>
-                                        @endif    
+                                        @endif
                                     @endforeach
                                 </tbody>
                             </table>
@@ -153,5 +158,5 @@
 @endsection
 
 @push('scripts')
-    
+
 @endpush
