@@ -59,7 +59,7 @@ class InventoryController extends Controller
     public function addProduct(Request $request)
     {
         $request->validate([
-            'product_name' => ['string', 'required'],
+            'product_name' => ['string', 'required', 'unique:inventory'],
             'product_quantity' => ['integer', 'required'],
             'date_supplied' => ['date', 'required'],
             'supplier_id' => ['required'],

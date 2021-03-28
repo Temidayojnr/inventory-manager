@@ -75,7 +75,7 @@
                                         {{-- *****TODO:: ADD DELETE USER FUNCTION  HERE  --}}
                                         <td>
                                             {{-- <a href="{{route('editPurchase', $u->id)}}" class="btn btn-info"><i class="fa fa-info"></i>Edit</a> --}}
-                                            @if (Auth::user()->is_admin == 1)
+                                            @if ($u->is_admin == 1)
                                                 <a href="#" class="btn btn-danger" disabled>Delete</a>
                                             @else
                                                 <a href="#" onclick="deleteItem('{{$u->id}}')" class="btn btn-danger">Delete</a>
