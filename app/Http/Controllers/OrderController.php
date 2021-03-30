@@ -37,7 +37,7 @@ class OrderController extends Controller
             'product_id' => ['required'],
             'quantity' => ['integer', 'required'],
             'requisition_date' => ['date', 'required'],
-            'issue_date' => ['date', 'after_or_equal:requisition_date', 'required'],
+            'issue_date' => ['date', 'after:requisition_date', 'required'],
         ]);
 
 
