@@ -37,7 +37,7 @@ class OrderController extends Controller
             'product_id' => ['required'],
             'quantity' => ['integer', 'required'],
             'requisition_date' => ['date', 'required'],
-            'issue_date' => ['date', 'before_or_equal:requisition_date', 'required'],
+            'issue_date' => ['date', 'after_or_equal:requisition_date', 'required'],
         ]);
 
 
@@ -54,6 +54,10 @@ class OrderController extends Controller
         $order->requisition_number = $request->requisition_number;
 
         $order->requisition_date = $request->requisition_date;
+
+        // if($order->requisition_date > $order->issue_date){
+        //     return redirect()->back()->with('error', 'Requisition date must not be higher than Issue Date');
+        // } else {
 
         $order->unit_price = $request->unit_price;
 
@@ -84,7 +88,7 @@ class OrderController extends Controller
         }
 
 
-        return redirect()->back()->with('success', 'Order created Successfully!!');;
+        return redirect()->back()->with('success', 'Order created Successfully!!');
     }
 
     public function getOrder($id)
