@@ -57,7 +57,7 @@
                     <div class="card-body">
                         <h4 class="card-title mb-4">Product</h4>
                         <div class="table-responsive">
-                            <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer dtr-inline" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                            <table id="" class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer dtr-inline" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead class="thead-light">
                                     <tr>
                                         {{-- <th>ID</th> --}}
@@ -121,11 +121,12 @@
        success:function(data)
        {
         var output = '';
+        console.log(data);
         $('#total_records').text(data.length);
         for(var count = 0; count < data.length; count++)
         {
          output += '<tr>';
-         output += '<td>' + data[count].product.product_name + '</td>';
+         output += '<td>' + data[count].product_name + '</td>';
          output += '<td>' + data[count].unit_price + '</td>';
          output += '<td>' + data[count].brand.name + '</td>';
          output += '<td>' + data[count].supplier.name + '</td>';

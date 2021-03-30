@@ -86,6 +86,12 @@ class OrderController extends Controller
         return redirect()->back()->with('success', 'Order created Successfully!!');;
     }
 
+    public function getOrder($id)
+    {
+        $order = Order::find($id);
+        return response()->json($order);
+    }
+
 
     public function softDeleteOrder($id)
     {

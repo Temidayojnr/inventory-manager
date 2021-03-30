@@ -70,6 +70,10 @@ Route::post('/reports/fetch_data', 'ReportController@fetch_data')->name('FetchDa
 
 Route::get('/reports/purchase', 'ReportController@purchase');
 
-Route::post('/reports/fetch_purchase', 'ReportController@fetch_data');
+Route::post('/reports/fetch_purchase', 'ReportController@fetch_purchase');
 
 Route::get('/get_department/{id}', 'HomeController@get_by_college')->name('getCollege');
+
+Route::get('/get-order/{id}', 'OrderController@getOrder');
+
+Route::post('/update-order', 'OrderController@updateOrder')->name('UpdateOrder');

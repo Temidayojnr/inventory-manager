@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Inventory;
+use App\Purchase;
 use DB;
 
 class ReportController extends Controller
@@ -42,14 +43,19 @@ class ReportController extends Controller
         {
         if($request->from_date != '' && $request->to_date != '')
         {
-        $data = DB::table('purchase')
-            ->whereBetween('date_supplied', array($request->from_date, $request->to_date))
-            ->with(['product','brand', 'supplier'])
+        // dd($request->from_date, $request->to_date);
+        $data = Purchase::where('date_supplied', '>=', $request->from_date)
+        ->orWhere('date_supplied', '<=', $request->to_date)
+            ->with('brand')
+            ->with('supplier')
             ->get();
         }
         else
         {
-            $data = DB::table('purchase')->orderBy('date_supplied', 'desc')->get();
+            $data = Purchase::orderBy('date_supplied', 'desc')
+            ->with('brand')
+            ->with('supplier')
+            ->get();
         }
             return json_encode($data);
         }
