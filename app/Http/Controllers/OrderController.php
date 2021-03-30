@@ -77,6 +77,7 @@ class OrderController extends Controller
             $new_quantity = $inventory->product_quantity - $request->quantity;
             $update_inventory = Inventory::find($inventory->id);
             $update_inventory->product_quantity = $new_quantity;
+            $update_inventory->stock_value = $new_quantity * $update_inventory->product_amount;
             $update_inventory->update();
 
             $order->save();
