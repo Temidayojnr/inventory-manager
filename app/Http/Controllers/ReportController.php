@@ -73,12 +73,12 @@ class ReportController extends Controller
         {
         if($request->from_date != '' && $request->to_date != '')
         {
-        $data = Order::where('issue_date', '>=', $request->from_date)
-        ->orWhere('issue_date', '<=', $request->to_date)
-            ->with('product')
-            ->with('department')
-            ->with('college')
-            ->get();
+            $data = Order::where('issue_date', '>=', $request->from_date)
+            ->orWhere('issue_date', '<=', $request->to_date)
+                ->with('product')
+                ->with('department')
+                ->with('college')
+                ->get();
         }
         else
         {
