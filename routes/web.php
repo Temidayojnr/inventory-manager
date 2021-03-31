@@ -72,6 +72,10 @@ Route::get('/reports/purchase', 'ReportController@purchase');
 
 Route::post('/reports/fetch_purchase', 'ReportController@fetch_purchase');
 
+Route::get('/reports/order', 'ReportController@order');
+
+Route::post('/reports/fetch_order', 'ReportController@fetch_order');
+
 Route::get('/get_department/{id}', 'HomeController@get_by_college')->name('getCollege');
 
 Route::get('/get-order/{id}', 'OrderController@getOrder');

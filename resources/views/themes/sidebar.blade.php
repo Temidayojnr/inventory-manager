@@ -55,7 +55,7 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="/reports/inventory" key="t-horizontal">Inventory Report</a></li>
                         <li><a href="/reports/purchase" key="t-vertical">Purchase Report</a></li>
-                        <li><a href="" key="t-vertical">Order Report</a></li>
+                        <li><a href="/reports/order" key="t-vertical">Order Report</a></li>
                     </ul>
                 </li>
 

@@ -19,7 +19,7 @@ class Order extends Model
         return $this->belongsTo(Inventory::class, 'product_id');
     }
 
-    public function totat_cost(Request $request)
+    public function total_cost(Request $request)
     {
         $total_cost = $order->quantity * $order->unit_price;
         return $total_cost;
