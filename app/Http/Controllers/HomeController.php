@@ -74,4 +74,12 @@ class HomeController extends Controller
             ->pluck("department_name","id");
             return response()->json($department);
     }
+
+    public function get_price_by_product($id)
+    {
+        $inventory = DB::table("Inventory")
+            ->where("id", $id)
+            ->pluck("product_amount","id");
+            return response()->json($inventory);
+    }
 }

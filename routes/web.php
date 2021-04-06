@@ -78,6 +78,8 @@ Route::post('/reports/fetch_order', 'ReportController@fetch_order');
 
 Route::get('/get_department/{id}', 'HomeController@get_by_college')->name('getCollege');
 
+Route::get('/get_price/{id}', 'HomeController@get_price_by_product')->name('getPrice');
+
 Route::get('/get-order/{id}', 'OrderController@getOrder');
 
 Route::post('/update-order', 'OrderController@updateOrder')->name('UpdateOrder');

@@ -120,7 +120,9 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="unit_price">Unit Price</label>
-                                            <input type="text" name="unit_price" class="form-control" id="unit_price">
+                                            <select name="unit_price" id="price_id" class="form-control">
+                                                {{-- AJAX FOR PRICE  --}}
+                                            </select>
                                         </div>
                                     </div>
 
@@ -205,4 +207,30 @@ $(document).ready(function() {
     });
 })
 
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('select[name="product_id"]').on('change',function(){
+
+            var productID= $(this).val();
+            console.log(productID);
+            if (productID) {
+                $.ajax({
+                url: "/get_price/"+productID,
+                type: "GET",
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
+                    $('select[name="unit_price"]').empty();
+                    $.each(data,function(key,value){
+                        $('select[name="unit_price"]').append('<option value="'+key+'">'+value+'</option>');
+                    });
+                }
+                });
+            }else {
+                    $('select[name="unit_price"]').empty();
+            }
+        });
+    })
 </script>
