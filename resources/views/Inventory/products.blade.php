@@ -133,19 +133,21 @@
                                             </label>
                                         </th>
                                         <td>
-                                            @if (Auth::user()->is_admin == 1)
+                                            {{-- @if (Auth::user()->is_admin == 1) --}}
                                                 <div class="dropdown">
                                                     <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
                                                         <i class="mdi mdi-dots-horizontal font-size-18"></i>
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item btn-primary" href="{{route('EditProduct', $i->id)}}"><i class="fa fa-info"></i> Edit</a>
-                                                        <a class="dropdown-item btn-danger" href="#" onclick="deleteItem('{{$i->id}}')"><i class="fa fa-trash"></i> Delete</a>
+                                                            <a class="dropdown-item btn-primary" href="{{route('EditProduct', $i->id)}}"><i class="fa fa-info"></i> Edit</a>
+                                                        @if (Auth::user()->is_admin == 1)
+                                                            <a class="dropdown-item btn-danger" href="#" onclick="deleteItem('{{$i->id}}')"><i class="fa fa-trash"></i> Delete</a>
+                                                        @endif
                                                     </div>
                                                 </div>
-                                            @else
+                                            {{-- @else
                                                 <span class="badge badge-danger">Contact Admin</span>
-                                            @endif
+                                            @endif --}}
                                         </td>
                                     </tr>
                                 @endforeach
