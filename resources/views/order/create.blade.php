@@ -111,7 +111,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="requisition_date">Requisition Date</label>
-                                            <input type="date" name="requisition_date" class="form-control" id="requisition_date">
+                                            <input type="date" name="requisition_date" class="form-control" value="<?php echo date("Y-m-d");?>" id="requisition_date">
                                         </div>
                                     </div>
                                 </div>
@@ -129,7 +129,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="issue_date">Issue Date</label>
-                                        <input type="date" name="issue_date" class="form-control" id="issue_date">
+                                        <input id="issue_date" type="date" value="<?php echo date("Y-m-d");?>" name="issue_date" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -177,9 +177,14 @@
     var date = new Date();
     document.getElementById("issue_date").value = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + String(date.getDate()).padStart(2,'0');
 </script> --}}
-<script>
+{{-- <script>
     $(".date-pick").datepicker('setDate', new Date());
-</script>
+</script> --}}
+
+{{-- <script>
+    let today = new Date().toISOString().substr(0, 10);
+    document.querySelector("#issue_date").value = today;
+</script> --}}
 
 <script>
 

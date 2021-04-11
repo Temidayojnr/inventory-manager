@@ -221,8 +221,14 @@
                                             <th>₦ {{number_format($i->stock_value)}}</th>
                                             {{-- <td>{{$i->date_supplied->format('jS F Y')}}</td> --}}
                                             <th>
+                                                {{-- @if ($i->status == 1)
+                                                    <span class="badge badge-pill badge-soft-success font-size-12">Available</span>
+                                                @endif --}}
+
                                                 @if ($i->status == 1)
                                                     <span class="badge badge-pill badge-soft-success font-size-12">Available</span>
+                                                @else
+                                                    <span class="badge badge-pill badge-soft-danger font-size-12">Unavailable</span>
                                                 @endif
                                             </th>
                                             <td>
