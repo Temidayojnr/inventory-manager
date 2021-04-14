@@ -8,7 +8,7 @@
                 <div class="col-12">
                     <div class="page-title-box d-flex align-items-center justify-content-between">
                         <h4 class="mb-0 font-size-18">Purchase(s)</h4>
-        
+
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Purchases</a></li>
@@ -63,7 +63,7 @@
                                             <a href="{{route('editPurchase', $p->id)}}" class="btn btn-info"><i class="fa fa-info"></i>Edit</a>
                                             <a href="#" onclick="deleteItem('{{$p->id}}')" class="btn btn-danger">Delete</a>
                                         </td>
-                                    </tr>    
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -99,4 +99,3 @@
         });
     }
 </script>
-  

@@ -4,36 +4,36 @@
     <div class="page-content">
         <div class="container-fluid">
             <!-- start page title -->
-    <div class="row">
-        <div class="col-12">
-            <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Orders</h4>
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-flex align-items-center justify-content-between">
+                        <h4 class="mb-0 font-size-18">Orders</h4>
 
-                <div class="page-title-right">
-                    <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Orders</a></li>
-                        <li class="breadcrumb-item active">Admin</li>
-                    </ol>
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Orders</a></li>
+                                <li class="breadcrumb-item active">Admin</li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
     <!-- end page title -->
 
 
     @if ($message = Session::get('success'))
-    <div class="alert alert-success">
-        <strong>{{ $message }}</strong>
-    </div>
+        <div class="alert alert-success">
+            <strong>{{ $message }}</strong>
+        </div>
     @endif
 
-    @if ($message = Session::get('error'))
-            <div class="alert alert-danger">
-                <strong>{{ $message }}</strong>
-            </div>
-        @endif
+    {{-- @if ($message = Session::get('error'))
+        <div class="alert alert-danger">
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif --}}
 
-    {{-- @if (count($errors) > 0)
+    @if (count($errors) > 0)
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -41,7 +41,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif --}}
+    @endif
 
 
             <div class="row">
@@ -172,19 +172,6 @@
 
     });
 </script>
-
-{{-- <script>
-    var date = new Date();
-    document.getElementById("issue_date").value = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + String(date.getDate()).padStart(2,'0');
-</script> --}}
-{{-- <script>
-    $(".date-pick").datepicker('setDate', new Date());
-</script> --}}
-
-{{-- <script>
-    let today = new Date().toISOString().substr(0, 10);
-    document.querySelector("#issue_date").value = today;
-</script> --}}
 
 <script>
 

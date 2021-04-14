@@ -61,6 +61,8 @@ class OrderController extends Controller
 
         $order->unit_price = $request->unit_price;
 
+        // $unit = Inventory::find($id);
+
         $order->issue_date = $request->issue_date;
 
         $order->invoice_id = $request->invoice_id;

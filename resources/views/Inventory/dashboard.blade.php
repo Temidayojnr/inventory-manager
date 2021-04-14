@@ -206,7 +206,6 @@
                                         <!--<th>Supplier</th>-->
                                         {{-- <th>Date Supplied</th> --}}
                                         <th>Status</th>
-                                        <th>Manage</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -231,7 +230,7 @@
                                                     <span class="badge badge-pill badge-soft-danger font-size-12">Unavailable</span>
                                                 @endif
                                             </th>
-                                            <td>
+                                            {{-- <td>
                                                 <div class="dropdown">
                                                     <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
                                                         <i class="mdi mdi-dots-horizontal font-size-18"></i>
@@ -241,7 +240,7 @@
                                                         <a class="dropdown-item btn-danger" href="#" onclick="deleteItem('{{$i->id}}')"><i class="fa fa-trash"></i> Delete</a>
                                                     </div>
                                                 </div>
-                                            </td>
+                                            </td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>
