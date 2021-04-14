@@ -39,4 +39,10 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, 'deleted_by');
     }
+
+    public function price()
+    {
+        return $this->belongsTo(Inventory::class, 'unit_price');
+    }
+
 }

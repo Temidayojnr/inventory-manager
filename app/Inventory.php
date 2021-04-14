@@ -26,7 +26,7 @@ class Inventory extends Model
 
     public function inStock()
     {
-        if ($product_quantiy > 1) {
+        if ($product_quantity > 1) {
             return $product_quantity;
         }
     }

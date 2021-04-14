@@ -1,13 +1,16 @@
 @section('scripts')
+<script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('template/vertical/assets/libs/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('template/vertical/assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('template/vertical/assets/libs/metismenu/metisMenu.min.js')}}"></script>
 <script src="{{asset('template/vertical/assets/libs/simplebar/simplebar.min.js')}}"></script>
 <script src="{{asset('template/vertical/assets/libs/node-waves/waves.min.js')}}"></script>
 
+
 {{-- sweet alert  --}}
 <script src="{{asset('js/swal.min.js')}}"></script>
 {{-- sweet alert  --}}
+
 
 <script src="{{asset('template/vertical/assets/libs/select2/js/select2.min.js')}}"></script>
 <script src="{{asset('template/vertical/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
