@@ -57,6 +57,17 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-analyse"></i>
+                        <span key="t-layouts">Settings</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="/settings/supplier" key="t-horizontal">Suppliers</a></li>
+                        <li><a href="/settings/brand" key="t-vertical">Brands</a></li>
+                    </ul>
+                </li>
+
                 @if (Auth::user()->is_admin)
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">

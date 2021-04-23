@@ -83,3 +83,11 @@ Route::get('/get_price/{id}', 'HomeController@get_price_by_product')->name('getP
 Route::get('/get-order/{id}', 'OrderController@getOrder');
 
 Route::post('/update-order', 'OrderController@updateOrder')->name('UpdateOrder');
+
+Route::get('/settings/supplier', 'SettingsController@supplier');
+
+Route::post('/add-supplier', 'SettingsController@add_supplier')->name('createSupplier');
+
+Route::get('/settings/brand', 'SettingsController@brand');
+
+Route::post('/add-brand', 'SettingsController@add_brand')->name('createBrand');
