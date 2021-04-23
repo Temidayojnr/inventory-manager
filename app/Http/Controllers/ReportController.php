@@ -78,6 +78,7 @@ class ReportController extends Controller
                 ->with('product')
                 ->with('department')
                 ->with('college')
+                ->with('price')
                 ->get();
         }
         else
@@ -86,6 +87,7 @@ class ReportController extends Controller
             ->with('product')
             ->with('department')
             ->with('college')
+            ->with('price')
             ->get();
         }
             return json_encode($data);

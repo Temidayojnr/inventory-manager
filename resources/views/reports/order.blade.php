@@ -127,7 +127,7 @@
         {
          output += '<tr>';
          output += '<td>' + data[count].product.product_name + '</td>';
-         output += '<td>' + data[count].unit_price + '</td>';
+         output += '<td>' + data[count].price.product_amount + '</td>';
          output += '<td>' + data[count].college.college_name + '</td>';
          output += '<td>' + data[count].department.department_name + '</td>';
          output += '<td>' + data[count].quantity + '</td>';
