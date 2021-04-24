@@ -130,7 +130,7 @@
                                                 <td>{{$order->department->department_name}}</td>
                                                 <td>{{$order->college->college_name}}</td>
                                                 <td>{{$order->product->product_name ?? ''}}</td>
-                                                <td>₦ {{$order->price->product_amount ?? ''}}</td>
+                                                <td>₦ {{number_format($order->unit_price)}}</td>
                                                 <th>{{number_format($order->quantity)}}</th>
                                                 <th>₦ {{number_format($order->total_cost)}}</th>
                                                 <th>{{$order->issue_date->format('jS F Y')}}</th>

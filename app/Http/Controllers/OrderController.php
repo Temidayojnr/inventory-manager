@@ -40,7 +40,9 @@ class OrderController extends Controller
             'issue_date' => ['date', 'after:requisition_date', 'required'],
         ]);
 
+        $product = Inventory::find($request->product_id);
 
+        // dd($request->input());
         $order = new Order;
 
         $order->college_id = $request->college_id;
@@ -55,11 +57,8 @@ class OrderController extends Controller
 
         $order->requisition_date = $request->requisition_date;
 
-        // if($order->requisition_date > $order->issue_date){
-        //     return redirect()->back()->with('error', 'Requisition date must not be higher than Issue Date');
-        // } else {
+        $order->unit_price = $product->product_amount;
 
-        $order->unit_price = $request->unit_price;
 
         // $unit = Inventory::find($id);
 
@@ -67,11 +66,9 @@ class OrderController extends Controller
 
         $order->invoice_id = $request->invoice_id;
 
-        $order->total_cost = $request->quantity * $request->unit_price;
+        $order->total_cost = $request->quantity * $product->product_amount;
 
         $order->created_by = Auth::user()->id;
-
-        // dd($request->all());
 
         // get the inventory with that specific product id
         $inventory = Inventory::where("id", $request->product_id)->first();

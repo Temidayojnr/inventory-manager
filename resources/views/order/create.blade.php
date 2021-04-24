@@ -120,9 +120,10 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="unit_price">Unit Price</label>
-                                            <select name="unit_price" id="price_id" class="form-control">
+                                            <input type="text" name="unit_price" class="form-control" disabled id="price_id">
+                                            {{-- <select name="unit_price" id="price_id" class="form-control">
                                                 {{-- AJAX FOR PRICE  --}}
-                                            </select>
+                                            {{-- </select> --}}
                                         </div>
                                     </div>
 
@@ -214,14 +215,14 @@ $(document).ready(function() {
                 dataType: "json",
                 success: function(data){
                     console.log(data);
-                    $('select[name="unit_price"]').empty();
+                    $('input[name="unit_price"]').empty();
                     $.each(data,function(key,value){
-                        $('select[name="unit_price"]').append('<option value="'+key+'">'+value+'</option>');
+                        $('input[name="unit_price"]').val(value);
                     });
                 }
                 });
             }else {
-                    $('select[name="unit_price"]').empty();
+                    $('input[name="unit_price"]').empty();
             }
         });
     })
