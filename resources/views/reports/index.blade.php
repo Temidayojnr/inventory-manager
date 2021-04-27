@@ -108,6 +108,7 @@
     }
 </script>
 
+{{-- This script export the generated table data  --}}
 <script type="text/javascript">
     function generate() {
         var doc = new jsPDF('p', 'pt', 'letter');

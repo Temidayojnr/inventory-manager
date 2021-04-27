@@ -55,8 +55,9 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title mb-4">Product</h4>
-                        <a id="downloadLink" class="btn btn-sm btn-success" onclick="exportF(this)">Export to excel</a> <br> <br>
+                        <h4 class="card-title mb-4">Purchases</h4>
+                        <a id="downloadLink" class="btn btn-sm btn-success" onclick="exportF(this)">Export to excel</a>
+                        <a id="downloadLink" class="btn btn-sm btn-danger" onclick="generate()">Export to PDF</a> <br> <br>
                         <div class="table-responsive">
                             <table id="table" class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer dtr-inline" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead class="thead-light">
@@ -94,15 +95,66 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 {{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
 
 <script>
     function exportF(elem) {
         var table = document.getElementById("table");
         var html = table.outerHTML;
-        var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url 
+        var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url
         elem.setAttribute("href", url);
         elem.setAttribute("download", "purchase-export.xls"); // Choose the file name
         return false;
+    }
+</script>
+
+
+{{-- This script export the generated table data  --}}
+<script type="text/javascript">
+    function generate() {
+        var doc = new jsPDF('p', 'pt', 'letter');
+        var htmlstring = '';
+        var tempVarToCheckPageHeight = 0;
+        var pageHeight = 0;
+        pageHeight = doc.internal.pageSize.height;
+        specialElementHandlers = {
+            // element with id of "bypass" - jQuery style selector
+            '#bypassme': function(element, renderer) {
+                // true = "handled elsewhere, bypass text extraction"
+                return true
+            }
+        };
+        margins = {
+            top: 150,
+            bottom: 60,
+            left: 40,
+            right: 40,
+            width: 600
+        };
+        var y = 20;
+        doc.setLineWidth(2);
+        doc.text(200, y = y + 30, "Purchase Report");
+        doc.autoTable({
+            html: '#table',
+            startY: 70,
+            theme: 'grid',
+            columnStyles: {
+                0: {
+                    cellWidth: 70,
+                },
+                1: {
+                    cellWidth: 70,
+                },
+                2: {
+                    cellWidth: 70,
+                }
+            },
+            styles: {
+                minCellHeight: 40
+            }
+        })
+        doc.save('Purchase_report.pdf');
     }
 </script>
 
