@@ -27,11 +27,11 @@
         </div>
     @endif
 
-    {{-- @if ($message = Session::get('error'))
+    @if ($message = Session::get('error'))
         <div class="alert alert-danger">
             <strong>{{ $message }}</strong>
         </div>
-    @endif --}}
+    @endif
 
     @if (count($errors) > 0)
         <div class="alert alert-danger">
