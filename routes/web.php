@@ -19,6 +19,7 @@
 Auth::routes(['register' => false]);
 
 Route::middleware(['auth'])->group(function () {
+
     Route::get('/','InventoryController@dashboard');
 
     Route::get('/chart', 'InventoryController@chart');
@@ -96,5 +97,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile/{id}', 'SettingsController@profile')->name('userProfile');
 
     Route::post('/update-profile/{id}', 'SettingsController@update_profile')->name('updateProfile');
+    
 });
 
