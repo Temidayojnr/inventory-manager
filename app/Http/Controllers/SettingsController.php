@@ -53,13 +53,15 @@ class SettingsController extends Controller
         $u->phone_number = $request->phone_number;
 
         if($request->hasFile('profile_image')){
-            $image2_file = $request->file('profile_image');
-            $ext = $image2_file->getClientOriginalExtension();
-            $image2 = 'logo _' . time() . '.' . $ext;
-            $image2_file->storeAs('public/images/', $image2);
+            $image_file = $request->file('profile_image');
+            $ext = $image_file->getClientOriginalExtension();
+            $image = 'logo _' . time() . '.' . $ext;
+            $image_file->storeAs('public/images/', $image);
 
-            $u->profile_image = $image2; 
+            $u->profile_image = $image;
         }
+
+        // dd($request->all());
 
         $u->save();
 
