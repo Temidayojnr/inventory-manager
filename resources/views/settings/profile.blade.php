@@ -131,7 +131,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="phone_number">Profile Image</label>
+                                        <label for="phone_number">Phone Number</label>
                                         <input type="tel" name="phone_number" class="form-control" value="{{$u->phone_number ?? '--'}}" id="">
                                     </div>
                                 </div>
