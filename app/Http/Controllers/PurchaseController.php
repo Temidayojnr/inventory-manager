@@ -29,6 +29,18 @@ class PurchaseController extends Controller
 
     public function purchase(Request $request)
     {
+        $request->validate([
+            'product_name' => ['required'],
+            'supplier_id' => ['required'],
+            'brand_id' => ['required'],
+            'brand_id' => ['required'],
+            'quantity' => ['integer', 'required'],
+            'date_supplied' => ['date', 'required'],
+            'unit_price' => ['required'],
+            'invoice_id' => ['required'],
+        ]);
+
+
         $purchase = new Purchase;
 
         $purchase->product_name = $request->product_name;
