@@ -53,6 +53,7 @@
                                     <th>Full Name</th>
                                     <th>Email</th>
                                     <th>Staff Type</th>
+                                    <th>Phone Number</th>
                                     <th>Date Added</th>
                                     <th>Action</th>
                                     {{-- <th>Manage</th> --}}
@@ -64,13 +65,14 @@
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$u->name}}</td>
                                         <td>{{$u->email}}</td>
-                                        <th>
+                                        <td>
                                             @if ($u->is_admin == 1)
                                                 <span class="badge badge-pill badge-soft-success font-size-12">Admin</span>
                                             @else
                                                 <span class="badge badge-pill badge-soft-info font-size-12">Staff</span>
                                             @endif
-                                        </th>
+                                        </td>
+                                        <td>{{$u->phone_number ?? ''}}</td>
                                         <td>{{$u->created_at->format('jS F Y') ?? ''}}</td>
                                         <td>
                                             {{-- <a href="{{route('editPurchase', $u->id)}}" class="btn btn-info"><i class="fa fa-info"></i>Edit</a> --}}
