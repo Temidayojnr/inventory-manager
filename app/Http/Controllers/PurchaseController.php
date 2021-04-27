@@ -37,7 +37,8 @@ class PurchaseController extends Controller
             'quantity' => ['integer', 'required'],
             'date_supplied' => ['date', 'required'],
             'unit_price' => ['required'],
-            'invoice_id' => ['required'],
+            'supplier_email' => ['required'],
+            'phone_number' => ['required'],
         ]);
 
 
