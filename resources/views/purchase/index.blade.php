@@ -61,7 +61,7 @@
                                         <th>{{$p->invoice_id}}</th>
                                         <td>
                                             <a href="{{route('editPurchase', $p->id)}}" class="btn btn-info"><i class="fa fa-info"></i>Edit</a>
-                                            <a href="#" onclick="deleteItem('{{$p->id}}')" class="btn btn-danger">Delete</a>
+                                            {{-- <a href="#" onclick="deleteItem('{{$p->id}}')" class="btn btn-danger">Delete</a> --}}
                                         </td>
                                     </tr>
                                 @endforeach
