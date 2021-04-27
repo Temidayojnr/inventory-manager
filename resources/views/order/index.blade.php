@@ -66,7 +66,7 @@
                                         <th>Requisition Number</th>
                                         <th>Requisition Date</th>
                                         <th>Issue</th>
-                                        <th>Deleted By</th>
+                                        {{-- <th>Deleted By</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -77,18 +77,18 @@
                                                 <td>{{$order->college->college_name}}</td>
                                                 <td>{{$order->product->product_name ?? ''}}</td>
                                                 <td>₦ {{number_format($order->unit_price)}}</td>
-                                                <th>{{number_format($order->quantity)}}</th>
-                                                <th>₦ {{number_format($order->total_cost)}}</th>
-                                                <th>{{$order->issue_date->format('jS F Y')}}</th>
-                                                <th>{{$order->invoice_id}}</th>
-                                                <th>{{$order->requisition_number}}</th>
+                                                <td>{{number_format($order->quantity)}}</td>
+                                                <td>₦ {{number_format($order->total_cost)}}</td>
+                                                <td>{{$order->issue_date->format('jS F Y')}}</td>
+                                                <td>{{$order->invoice_id}}</td>
+                                                <td>{{$order->requisition_number}}</td>
                                                 <td>{{$order->requisition_date->format('jS F Y')}}</td>
-                                                <td>
+                                                {{-- <td>
                                                     @if ($order->isDeleted == 1)
                                                         <span class="badge badge-pill badge-soft-danger font-size-12">Deleted</span>
                                                     @endif
-                                                </td>
-                                                <th>{{$order->who_deleted->name ?? ' '}}</th>
+                                                </td> --}}
+                                                {{-- <th>{{$order->who_deleted->name ?? ' '}}</th> --}}
                                             </tr>
                                         {{-- @endif     --}}
                                     @endforeach
@@ -120,7 +120,7 @@
                                         <th>Invoice ID</th>
                                         <th>Requisition Number</th>
                                         <th>Requisition Date</th>
-                                        <th>Action</th>
+                                        {{-- <th>Action</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -137,9 +137,9 @@
                                                 <th>{{$order->invoice_id}}</th>
                                                 <th>{{$order->requisition_number}}</th>
                                                 <td>{{$order->requisition_date->format('jS F Y')}}</td>
-                                                <td>
+                                                {{-- <td>
                                                     <a href="{{route('DeleteOrder', $order->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i> Delete Order</a>
-                                                </td>
+                                                </td> --}}
                                             </tr>
                                         @endif
                                     @endforeach

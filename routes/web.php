@@ -42,7 +42,7 @@ Route::get('/create-order', 'OrderController@create')->name('create');
 
 Route::post('/add-order', 'OrderController@createOrder')->name('CreateOrder');
 
-Route::get('/purchase', 'PurchaseController@index')->name('AllPurhcase');
+Route::get('/purchase', 'PurchaseController@index')->name('AllPurchase');
 
 Route::get('/delete-order/{id}', 'OrderController@softDeleteOrder')->name('DeleteOrder');
 
@@ -91,3 +91,7 @@ Route::post('/add-supplier', 'SettingsController@add_supplier')->name('createSup
 Route::get('/settings/brand', 'SettingsController@brand');
 
 Route::post('/add-brand', 'SettingsController@add_brand')->name('createBrand');
+
+Route::get('/profile/{id}', 'SettingsController@profile')->name('userProfile');
+
+Route::post('/update-profile/{id}', 'SettingsController@update_profile')->name('updateProfile');
