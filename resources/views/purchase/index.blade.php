@@ -30,9 +30,9 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th>ID</th>
+                                    <th>Item Name</th>
                                     <th>Purchase Date</th>
                                     <th>Supplier Name</th>
-                                    <th>Item Name</th>
                                     <th>Unit Price</th>
                                     <th>Qunatity</th>
                                     <th>Supplier's Email</th>
@@ -48,9 +48,9 @@
                                 @foreach ($purchase as $p)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
+                                        <td>{{$p->product_name}}</td>
                                         <td>{{$p->created_at->format('jS F Y')}}</td>
                                         <td>{{$p->supplier->name}}</td>
-                                        <td>{{$p->product_name}}</td>
                                         <td>₦ {{number_format($p->unit_price)}}</td>
                                         <td>{{number_format($p->quantity)}}</td>
                                         <td>{{$p->supplier_email}}</td>

@@ -157,6 +157,9 @@
 
 @endsection
 
+
+<script src="{{asset('js/jquery.min.js')}}"></script>
+
 @push('scripts')
 
 @endpush
