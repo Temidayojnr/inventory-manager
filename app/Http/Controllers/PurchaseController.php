@@ -39,6 +39,7 @@ class PurchaseController extends Controller
             'unit_price' => ['required'],
             'supplier_email' => ['required'],
             'phone_number' => ['required'],
+            'invoice_id' => ['required'],
         ]);
 
 
