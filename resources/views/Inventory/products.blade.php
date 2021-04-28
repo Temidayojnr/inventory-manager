@@ -109,6 +109,7 @@
                                     <!--<th>Supplier</th>-->
                                     <th>Date Supplied</th>
                                     <th>Status</th>
+                                    <th>Stock Level</th>
                                     <th>Manage</th>
                                 </tr>
                             </thead>
@@ -123,7 +124,7 @@
                                         <th>₦ {{number_format($i->product_amount)}}</th>
                                         <th>₦ {{number_format($i->stock_value)}}</th>
                                         <td>{{$i->date_supplied->format('jS F Y')}}</td>
-                                        <th>
+                                        <td>
                                             {{-- @if ($i->status == 1)
                                                 <span class="badge badge-pill badge-soft-success font-size-12">Available</span>
                                             @endif --}}
@@ -131,7 +132,14 @@
                                                 <input class="product_status" id="{{$i->id}}" type="checkbox" data-id="{{$i->id}}" name="status" onclick="updateStatus('{{$i->id}}')" {{ $i->status ? 'checked' : '' }} data-toggle="toggle">
                                                 <span class="slider round"></span>
                                             </label>
-                                        </th>
+                                        </td>
+                                        <td>
+                                            @if ($i->product_quantity < 3)
+                                                <span class="badge badge-pill badge-soft-danger font-size-12">Stock Level Low!!!</span>
+                                            @else
+                                                <span class="badge badge-pill badge-soft-success font-size-12">Stock OK</span>
+                                            @endif
+                                        </td>
                                         <td>
                                             {{-- @if (Auth::user()->is_admin == 1) --}}
                                                 <div class="dropdown">
